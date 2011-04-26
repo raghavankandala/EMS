@@ -1,4 +1,4 @@
-<%= form_for @event, :multipart => true  do |f| %>
+<%= form_for @event, :html => {:multipart => true}  do |f| %>
   <%= render 'layouts/form_error', :target => @event %>
   <p>
     <%= f.label :title %>
@@ -10,15 +10,15 @@
   </p>
   <p>
     <%= f.label :start_date %>
-    <%= f.date_select :start_date, {:order => [:day, :month, :year]} %>
+    <%= f.datetime_select :start_date, {:order => [:day, :month, :year]} %>
   </p>
   <p>
     <%= f.label :end_date %>
-    <%= f.date_select :end_date, {:order => [:day, :month, :year]} %>
+    <%= f.datetime_select :end_date, {:order => [:day, :month, :year]} %>
   </p>
   <p>
-    <%= f.label :venue %>
-    <%= f.text_field :venue, :size => 80 %>
+    <%= f.label :venue_location %>
+    <%= f.text_field :venue_location, :size => 80 %>
   </p>
   <p>
     <%= f.label :schedule %>
@@ -26,11 +26,24 @@
   </p>
   <p>
     <%= f.label :contact %>
-    <%= f.text_area :contact, :rows => 10, :cols => 110 %>
+    <%= f.text_field :contact, :size => 80 %> <br/>
+    <span class="hint">( Use comma to separate multiple contact numbers Eg: Saravana - 9xxxxxxxxxx , Ravi - 95xxxxxxxx)</span>
   </p>
   <p>
     <%= f.label :city %>
     <%= f.text_field :city %>
+  </p>
+  <p>
+    <%= f.label :facebook_url%>
+    <%= f.text_field :facebook_url%>
+  </p>
+  <p>
+    <%= f.label :twitter_url%>
+    <%= f.text_field :twitter_url%>
+  </p>
+  <p>
+    <%= f.label :orkut_url%>
+    <%= f.text_field :orkut_url%>
   </p>
   <p>
     <%= f.label :etype %>
@@ -39,6 +52,10 @@
   <p>
     <%= f.label :Venue %>
     <%= f.file_field :venue %>
+  </p>
+  <p>
+    <%= f.label :venue_directions_url %>
+    <%= f.text_field :venue_directions_url %>
   </p>
   <p>
     <%= f.label :rallyroute %>

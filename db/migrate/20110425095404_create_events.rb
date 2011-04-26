@@ -5,7 +5,7 @@ class CreateEvents < ActiveRecord::Migration
       t.text :description
       t.datetime :start_date
       t.datetime :end_date
-      t.string :venue
+      t.string :venue_location
       t.text :schedule
       t.text :contact
       t.string :city
