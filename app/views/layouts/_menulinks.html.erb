@@ -1,0 +1,16 @@
+<div class="user-nav">
+  <% if current_user %>
+      <A href="/admin">Manage</A> | <%= current_user.email %> | <A href="/logout">Logout</A>
+  <% end %>
+</div>
+
+<div style="margin-top:102px;"> 
+	<ul class="horizontal_menu"> 
+		<li class="<%= 'highlight_menu' if !@highlighted_menu.nil? && @highlighted_menu.eql?('home') %>"><A href="/">Home</A></li>
+		<li class="<%= 'highlight_menu' if !@highlighted_menu.nil? && @highlighted_menu.eql?('fight') %>"><A href="/fight">Fight</A></li>
+		<li class="<%= 'highlight_menu' if !@highlighted_menu.nil? && @highlighted_menu.eql?('awareness') %>"><A href="#">Awareness</A></li>
+		<!--li class="<%= 'highlight_menu' if !@highlighted_menu.nil? && @highlighted_menu.eql?('music')%>"><A href="/attend">Music</A></li-->
+		<li class="<%= 'highlight_menu' if !@highlighted_menu.nil? && @highlighted_menu.eql?('artwork')%>"><A href="/artwork">Artwork</A></li>
+		<li class="<%= 'highlight_menu' if !@highlighted_menu.nil? && @highlighted_menu.eql?('press') %>"><A href="/press">PRESS</A></li>
+	</ul>
+</div>

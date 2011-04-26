@@ -1,0 +1,48 @@
+<%= form_for @event, :multipart => true  do |f| %>
+  <%= render 'layouts/form_error', :target => @event %>
+  <p>
+    <%= f.label :title %>
+    <%= f.text_field :title, :size => 80 %>
+  </p>
+  <p>
+    <%= f.label :description %>
+    <%= f.cktext_area :description %>
+  </p>
+  <p>
+    <%= f.label :start_date %>
+    <%= f.date_select :start_date, {:order => [:day, :month, :year]} %>
+  </p>
+  <p>
+    <%= f.label :end_date %>
+    <%= f.date_select :end_date, {:order => [:day, :month, :year]} %>
+  </p>
+  <p>
+    <%= f.label :venue %>
+    <%= f.text_field :venue, :size => 80 %>
+  </p>
+  <p>
+    <%= f.label :schedule %>
+    <%= f.text_area :schedule, :rows => 10, :cols => 110 %>
+  </p>
+  <p>
+    <%= f.label :contact %>
+    <%= f.text_area :contact, :rows => 10, :cols => 110 %>
+  </p>
+  <p>
+    <%= f.label :city %>
+    <%= f.text_field :city %>
+  </p>
+  <p>
+    <%= f.label :etype %>
+    <%= f.text_field :etype %>
+  </p>
+  <p>
+    <%= f.label :Venue %>
+    <%= f.file_field :venue %>
+  </p>
+  <p>
+    <%= f.label :rallyroute %>
+    <%= f.file_field :rallyroute %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>
