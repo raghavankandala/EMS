@@ -1,0 +1,20 @@
+<%= form_for @locality do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :ward_id %><br />
+    <%= f.text_field :ward_id %>
+  </p>
+  <p>
+    <%= f.label :lat %><br />
+    <%= f.text_field :lat %>
+  </p>
+  <p>
+    <%= f.label :lon %><br />
+    <%= f.text_field :lon %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>

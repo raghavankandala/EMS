@@ -9,6 +9,9 @@ class Event < ActiveRecord::Base
   validates_attachment_size :rallyroute, :less_than => 1.megabytes  
   validates_attachment_content_type :rallyroute, :content_type => ['image/jpeg', 'image/png']  
 
+  has_many :event_registrations
+  has_many :registrations, :through => :event_registrations
+
 
   def social_network?
     (!self.facebook_url.blank? || !self.twitter_url.blank? || !self.orkut_url.blank?)

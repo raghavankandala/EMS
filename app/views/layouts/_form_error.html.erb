@@ -1,6 +1,7 @@
 <% if target.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(target.errors.count, "error") %> prohibited this <%= target.class.name.capitalize %> from being saved:</h2>
+  <div class="errorExplanation">
+    <!--h2>< pluralize(target.errors.count, "error") > prohibited this <= target.class.name.capitalize %> from being saved:</h2-->
+    <h6>Please correct the following errors and resubmit the form</h6>
     <ul>
       <% target.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>

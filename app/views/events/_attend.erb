@@ -1,10 +1,10 @@
 <TABLE class="colorful auto_width">
   <TR>
-    <TD> <Div><A href="#">I want to attend</A></DIV></TD>
-    <TD> <Div><A href="#">I want to invite others </A></DIV></TD>
+    <TD> <Div><A href="/events/<%= @event.id %>/attend">I want to attend</A></DIV></TD>
+    <TD> <Div><A href="/events/<%= @event.id %>/invite">I want to invite others </A></DIV></TD>
   </TR>
   <TR>
-    <TD> <Div><A href="#">I want to Volunteer </A></DIV></TD>
-    <TD> <Div><A href="#">See who is coming </A></DIV></TD>
+    <TD> <Div><A href="/events/<%= @event.id %>/volunteer">I want to Volunteer </A></DIV></TD>
+    <TD> <Div><A href="/events/<%= @event.id %>/attendees">See who is coming </A></DIV></TD>
   </TR>
 </TABLE>

@@ -1,0 +1,23 @@
+<% title "Localities" %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Ward</th>
+    <th>Lat</th>
+    <th>Lon</th>
+  </tr>
+  <% for locality in @localities %>
+    <tr>
+      <td><%= locality.name %></td>
+      <td><%= locality.ward_id %></td>
+      <td><%= locality.lat %></td>
+      <td><%= locality.lon %></td>
+      <td><%= link_to "Show", locality %></td>
+      <td><%= link_to "Edit", edit_locality_path(locality) %></td>
+      <td><%= link_to "Destroy", locality, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Locality", new_locality_path %></p>

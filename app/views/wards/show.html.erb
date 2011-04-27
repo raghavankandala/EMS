@@ -1,0 +1,32 @@
+<% title "Ward" %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @ward.name %>
+</p>
+<p>
+  <strong>Ward No:</strong>
+  <%= @ward.ward_no %>
+</p>
+<p>
+  <strong>Total Population:</strong>
+  <%= @ward.total_population %>
+</p>
+<p>
+  <strong>Area:</strong>
+  <%= @ward.area %>
+</p>
+<p>
+  <strong>Lat:</strong>
+  <%= @ward.lat %>
+</p>
+<p>
+  <strong>Lon:</strong>
+  <%= @ward.lon %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_ward_path(@ward) %> |
+  <%= link_to "Destroy", @ward, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", wards_path %>
+</p>

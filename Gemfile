@@ -14,6 +14,7 @@ gem 'fastercsv'
 gem 'nifty-generators', :group => :development
 gem 'meta_search'
 gem 'ckeditor', '3.4.2.pre'
+gem 'recaptcha', :require => 'recaptcha/rails'
 #gem 'prawn'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

@@ -1,0 +1,59 @@
+
+<p>
+  <strong>Name:</strong>
+  <%= @registration.name %>
+</p>
+<p>
+  <strong>Mobile:</strong>
+  <%= @registration.mobile %>
+</p>
+<p>
+  <strong>Email:</strong>
+  <%= @registration.email %>
+</p>
+<p>
+  <strong>Address:</strong>
+  <%= @registration.address %>
+</p>
+<p>
+  <strong>Locality:</strong>
+  <%= @registration.locality_id %>
+</p>
+<p>
+  <strong>Ward:</strong>
+  <%= @registration.ward_id %>
+</p>
+<p>
+  <strong>Confirmed:</strong>
+  <%= @registration.confirmed %>
+</p>
+<p>
+  <strong>Guid:</strong>
+  <%= @registration.guid %>
+</p>
+<p>
+  <strong>Student:</strong>
+  <%= @registration.student %>
+</p>
+<p>
+  <strong>Institution:</strong>
+  <%= @registration.institution %>
+</p>
+<p>
+  <strong>Volunteering Area:</strong>
+  <%= @registration.volunteering_area %>
+</p>
+<p>
+  <strong>Volunteer Description:</strong>
+  <%= @registration.volunteer_description %>
+</p>
+<p>
+  <strong>Rtype:</strong>
+  <%= @registration.rtype %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_registration_path(@registration) %> |
+  <%= link_to "Destroy", @registration, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", registrations_path %>
+</p>

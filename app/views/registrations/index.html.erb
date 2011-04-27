@@ -1,0 +1,40 @@
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Mobile</th>
+    <th>Email</th>
+    <th>Address</th>
+    <th>Locality</th>
+    <th>Ward</th>
+    <th>Confirmed</th>
+    <th>Guid</th>
+    <th>Student</th>
+    <th>Institution</th>
+    <th>Volunteering Area</th>
+    <th>Volunteer Description</th>
+    <th>Rtype</th>
+  </tr>
+  <% for registration in @registrations %>
+    <tr>
+      <td><%= registration.name %></td>
+      <td><%= registration.mobile %></td>
+      <td><%= registration.email %></td>
+      <td><%= registration.address %></td>
+      <td><%= registration.locality_id %></td>
+      <td><%= registration.ward_id %></td>
+      <td><%= registration.confirmed %></td>
+      <td><%= registration.guid %></td>
+      <td><%= registration.student %></td>
+      <td><%= registration.institution %></td>
+      <td><%= registration.volunteering_area %></td>
+      <td><%= registration.volunteer_description %></td>
+      <td><%= registration.rtype %></td>
+      <td><%= link_to "Show", registration %></td>
+      <td><%= link_to "Edit", edit_registration_path(registration) %></td>
+      <td><%= link_to "Destroy", registration, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Registration", new_registration_path %></p>

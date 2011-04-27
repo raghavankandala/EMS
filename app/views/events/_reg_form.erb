@@ -1,0 +1,68 @@
+<div class="span-14 prepend-1">
+<div class="form">
+<%= render 'layouts/form_error', :target => @registration %>
+<% form_for @registration, :url => "/events/#{@event.id}/register" do |f| %>
+  <%= f.hidden_field :rtype %>
+  <p>
+    <%= f.label raw("name <span style='font-weight:normal;'>(required)</span>") %>
+    <%= f.text_field :name, :size => 45 %>
+  </p>
+  <p>
+    <%= f.label raw("Email <span style='font-weight:normal;'>(required)</span>") %>
+    <%= f.text_field :email, :size => 45 %>
+  </p>
+  <p>
+    <%= f.label raw("mobile") %>
+    <%= f.text_field :mobile, :size => 45 %>
+  </p>
+  <p>
+    <%= f.label raw("Address") %>
+    <%= f.text_area :address, :rows => 5, :cols => 50 %>
+  </p>
+  <p>
+    <%= f.label raw("Locality <span style='font-weight:normal;'>(required)</span>") %>
+	 <%= f.select(:locality_id, Locality.find(:all, :order => 'name ASC').collect {|l| [l.name.upcase, l.id] }, {:prompt => "SELECT LOCALITY"}, {"style" => "width:385px;"} ) %>
+  </p>
+  <p>
+    <%= f.label "Ward" %>
+	 <%= f.select(:ward_id, Ward.find(:all, :order => 'name ASC').collect {|l| [l.name.upcase, l.id] }, {:prompt => "SELECT WARD "}, {"style" => "width:385px;"} ) %>
+  </p>
+  <% if @registration.rtype == 2 %>
+    <p>
+      <%= f.label raw("I want to help in <span style='font-weight:normal;'>(required)</span>") %>
+      <%= f.select(:volunteering_area, ["Web", "Management", "Print Media", "Event Arrangements", "Others"], {:prompt => "SELECT"}) %> 
+    </p>
+    <p>
+      <%= f.label raw("A brief about you <span style='font-weight:normal;'>(required)</span>") %>
+      <%= f.text_area :volunteer_description, :rows => 5, :cols => 50 %> 
+    </p>
+  <% end %>
+	<p>
+    	<input type="checkbox" name="registration[student]" value="1" <%= "checked='checked'" if @registration.student? %> onClick="IamAStudent(this);"> <label style="display:inline;">I am a Student</label>
+	</p>
+	<br/>
+	<p id="college_select" style="<%= 'display:none;' unless Registration::COLLEGES.include?(@registration.institution)%>">
+	 <select style="width:420px;" onChange="javascript:updateCollegeValue(this.options[this.selectedIndex].value);" id="college_select_box">
+		<option value="">SELECT INSTITUTION</option>
+		<%= options_for_select(Registration::COLLEGES.collect {|l| l.upcase }, @registration.institution) %>
+	 </select> <span style='font-weight:normal;'>(required)</span>
+	 <br/><A href="javascript:void(null);" onClick="myCollegeIsNotListed();">My Institute is not listed here</A>
+	</p>
+    <p style="<%= 'display:none;' if !@registration.student? || Registration::COLLEGES.include?(@registration.institution)%>" id="custom_college_name">
+	   <label>Enter your Institution name <span style='font-weight:normal;'>(required)</span></label> 
+		<input type="text" size="45" value="<%= @registration.institution unless Registration::COLLEGES.include?(@registration.institution) %>" onKeyPress="javascript:updateCollegeValue(this.value);" id="custom_college_text_box"/>
+	   <br/><A href="javascript:void(null);" onClick="selectFromTheList();">Show me the institutions List</A>
+	</p>
+	<input type="hidden" name="registration[institution]" value="<%= @registration.institution%>" id="registration_college_name"/>
+	<br/>
+	
+   <p>
+      <%= render :partial => 'home/recaptcha' %> <br/>
+   </p>
+  <p><%= f.submit @registration.rtype == 2 ? "I want to Volunteer!" : "I want to come!" , :style => "width:380px;font-size:20px;height:40px;" %></p>
+<% end %>
+</div>
+</div>
+<div class="span-7 append-1 last">
+  <%= render 'rhs' %>
+</div>

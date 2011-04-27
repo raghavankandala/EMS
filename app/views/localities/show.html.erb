@@ -1,0 +1,24 @@
+<% title "Locality" %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @locality.name %>
+</p>
+<p>
+  <strong>Ward:</strong>
+  <%= @locality.ward_id %>
+</p>
+<p>
+  <strong>Lat:</strong>
+  <%= @locality.lat %>
+</p>
+<p>
+  <strong>Lon:</strong>
+  <%= @locality.lon %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_locality_path(@locality) %> |
+  <%= link_to "Destroy", @locality, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", localities_path %>
+</p>

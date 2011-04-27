@@ -23,35 +23,5 @@
 </div>
 <!-- Right hand side content -->
 <div class="span-8 last">
-  <div>
-    <% unless @event.schedule.blank? %>
-    <p>
-      <%= render 'schedule' %> 
-    </p>
-    <% end %>
-
-    <% if @event.social_network? %>
-    <p>
-      <%= render 'social_network' %>
-    </p>
-    <% end %>
-
-    <% unless @event.contact.blank? %>
-    <p>
-      <%= render 'contact' %> 
-    </p>
-    <% end %>
-
-    <% unless @event.venue_directions_url.blank? %>
-    <p>
-      <%= render 'venue' %> 
-    </p>
-    <% end %>
-
-    <% unless @event.rallyroute_file_name.blank? %>
-    <p>
-      <%= render 'rallyroute' %> 
-    </p>
-    <% end %>
-  </div>
+  <%= render 'rhs' %>
 </div>
