@@ -1,15 +1,9 @@
-<!--style> 
-  td.bullet { width: 42px; } 
-  table.colorful tr td div { background-color: #EC1F26; padding:5px; width:125px;}
-  table.colorful tr td div A { color: #FFF; padding:5px; font-size:14px; font-weight:bold; }
-  div.colorful { padding:5px; font-size:14px; font-weight:bold; margin-bottom:10px; padding:10px;}
-  div.orange { background-color: #FF9900; }
-  div.green{ background-color: #79B400; }
-  div.white{ background-color: #FFF; }
-  div.colorful A { color: #FFF; padding:5px; font-size:14px; font-weight:bold; }
-  div.white A { color: #EC1F26; }
-</style-->
             <div class="span-15 prepend-1">
+              <% unless @upcoming_events.empty? %>
+              <div>
+                <%= render 'events/upcoming' %>
+              </div>
+              <% end %>
               <TABLE>
                 <TR>
                   <TD class="bullet"><img src="/images/saaku_bullet_new.png"></TD>

@@ -16,6 +16,10 @@ class Event < ActiveRecord::Base
 
   CITIES = ["Bangalore", "Mysore"]
 
+  def self.upcoming
+    Event.where("end_date >= ?", Time.now())
+  end
+
   def social_network?
     (!self.facebook_url.blank? || !self.twitter_url.blank? || !self.orkut_url.blank?)
   end
