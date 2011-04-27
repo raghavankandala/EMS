@@ -22,6 +22,7 @@ Saaku20::Application.routes.draw do
   get "sign_up" => "users#new", :as => "sign_up"
   match "/confirm/:id" => "registrations#confirm"
   match "/confirm_participation/:guid" => "events#confirm_participation"
+  match "/registrants/:id" => "events#fetch_attendees"
   get "users/destroy"
   resources :users
   resources :sessions

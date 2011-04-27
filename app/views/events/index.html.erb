@@ -2,26 +2,18 @@
 <table>
   <tr>
     <th>Title</th>
-    <th>Description</th>
     <th>Start Date</th>
     <th>End Date</th>
     <th>Venue</th>
-    <th>Schedule</th>
-    <th>Contact</th>
     <th>City</th>
-    <th>Etype</th>
   </tr>
   <% for event in @events %>
     <tr>
       <td><%= event.title %></td>
-      <td><%= event.description %></td>
       <td><%= event.start_date %></td>
       <td><%= event.end_date %></td>
-      <td><%= event.venue %></td>
-      <td><%= event.schedule %></td>
-      <td><%= event.contact %></td>
+      <td><%= event.venue_location %></td>
       <td><%= event.city %></td>
-      <td><%= event.etype %></td>
       <td><%= link_to "Show", event %></td>
       <td><%= link_to "Edit", edit_event_path(event) %></td>
       <td><%= link_to "Destroy", event, :confirm => 'Are you sure?', :method => :delete %></td>

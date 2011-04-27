@@ -19,8 +19,8 @@
    window.onload = function() {
    initMap();
    render(<%= raw(@locs) %>, {'centerMap': true});
-   fetch_attendees();
-   new PeriodicalExecuter(function() { fetch_attendees() }, 20);
+   fetch_attendees(<%= @event.id %>);
+   new PeriodicalExecuter(function() { fetch_attendees(<%= @event.id %>) }, 20);
   }
  // });
 </script>

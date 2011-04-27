@@ -1,4 +1,6 @@
 class Event < ActiveRecord::Base
+  has_friendly_id :title, :use_slug => true
+
   attr_accessible :title, :description, :start_date, :end_date, :venue_location, :schedule, :contact, :city, :etype, :venue_directions_url, :venue, :rallyroute, :facebook_url, :twitter_url, :orkut_url
 
   has_attached_file :venue, :styles => { :thumb => "100x100#", :small => "278x205>" }
@@ -11,6 +13,8 @@ class Event < ActiveRecord::Base
 
   has_many :event_registrations
   has_many :registrations, :through => :event_registrations
+
+  CITIES = ["Bangalore", "Mysore"]
 
   def social_network?
     (!self.facebook_url.blank? || !self.twitter_url.blank? || !self.orkut_url.blank?)

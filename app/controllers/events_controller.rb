@@ -43,7 +43,7 @@ class EventsController < ApplicationController
 
   def attend
     @event = Event.find(params[:id])
-    @registration = Registration.new({:rtype => 1})
+    @registration = Registration.new({:rtype => 1, :city => @event.city})
   end
 
   def attendees
@@ -54,7 +54,7 @@ class EventsController < ApplicationController
 
   def volunteer
     @event = Event.find(params[:id])
-    @registration = Registration.new({:rtype => 2})
+    @registration = Registration.new({:rtype => 2, :city => @event.city})
   end
 
   def invite
@@ -89,7 +89,7 @@ class EventsController < ApplicationController
       @er = EventRegistration.where("event_id = ? and registration_id = ?", @event.id, @reg.id).first
       if @er.nil?
         @er = EventRegistration.create!({:event => @event, :registration => @reg, :rtype => @registration.rtype, :guid => EventRegistration.gen_guid})
-        RegistrationMailer.event_registration_confirmation(@er).deliver
+        RegistrationMailer.event_participation_confirmation(@er).deliver
         redirect_to @event, :notice => "Thank you for extending your support to the event! A confirmation email has been sent to your email address"
         return;
       else
@@ -100,6 +100,7 @@ class EventsController < ApplicationController
           @er.update_attributes({:rtype => @registration.rtype, :guid => EventRegistration.gen_guid})
           RegistrationMailer.event_participation_confirmation(@er).deliver
           redirect_to @event, :notice => "Thank you for extending your support to the event! A confirmation email has been sent to your email address"
+          return;
         end
       end
     end
@@ -107,6 +108,7 @@ class EventsController < ApplicationController
       EventRegistration.create!({:event => @event, :registration => @registration, :rtype => @registration.rtype, :guid => @registration.guid })
       RegistrationMailer.registration_confirmation(@registration).deliver
       redirect_to @event, :notice => "Thank you for extending your support to the event! A confirmation email has been sent for you to confirm your participation"
+      return;
     else
       if @registration.rtype == 1
         render :action => 'attend'

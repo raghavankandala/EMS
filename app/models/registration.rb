@@ -1,5 +1,5 @@
 class Registration < ActiveRecord::Base
-  attr_accessible :name, :mobile, :email, :address, :locality_id, :ward_id, :confirmed, :guid, :student, :institution, :volunteering_area, :volunteer_description, :rtype, :confirmed_at
+  attr_accessible :name, :mobile, :email, :address, :locality_id, :ward_id, :confirmed, :guid, :student, :institution, :volunteering_area, :volunteer_description, :rtype, :confirmed_at, :city
   belongs_to :locality
   has_many :event_registrations
   has_many :events, :through => :event_registrations
@@ -11,7 +11,7 @@ class Registration < ActiveRecord::Base
 
   validates_presence_of :name, :email
   #validates_uniqueness_of :email, :unless => Proc.new { |c| c.email.blank? }
-  validates_presence_of :locality_id, :message => "Please select the locality where you live."
+  validates_presence_of :locality_id, :message => "Please select the locality where you live.", :if => Proc.new {|c| Locality.available(c.city) }
   validates_presence_of :institution, :if => Proc.new { |c| c.student? }
   validates_presence_of :volunteering_area, :if => Proc.new { |c| c.rtype == 2 }
   validates_presence_of :volunteer_description, :if => Proc.new { |c| c.rtype == 2 }

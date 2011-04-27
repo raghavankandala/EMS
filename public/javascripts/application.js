@@ -70,8 +70,8 @@ function externalPr(checkbox_obj) {
 	}
 }
 
-function fetch_attendees() {
-   new Ajax.Request('/registrants', {method: 'get', asynchronous:true, evalScripts:true});
+function fetch_attendees(event_id) {
+   new Ajax.Request('/registrants/'+event_id, {method: 'get', asynchronous:true, evalScripts:true});
 }
 
 function announcement() {
