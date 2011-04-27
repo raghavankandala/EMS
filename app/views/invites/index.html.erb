@@ -1,0 +1,21 @@
+<% title "Invites" %>
+
+<table>
+  <tr>
+    <th>Invitee Name</th>
+    <th>Invitee Email</th>
+    <th>Invitees</th>
+  </tr>
+  <% for invite in @invites %>
+    <tr>
+      <td><%= invite.invitee_name %></td>
+      <td><%= invite.invitee_email %></td>
+      <td><%= invite.invitees %></td>
+      <td><%= link_to "Show", invite %></td>
+      <td><%= link_to "Edit", edit_invite_path(invite) %></td>
+      <td><%= link_to "Destroy", invite, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Invite", new_invite_path %></p>

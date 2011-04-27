@@ -1,0 +1,20 @@
+<% title "Invite" %>
+
+<p>
+  <strong>Invitee Name:</strong>
+  <%= @invite.invitee_name %>
+</p>
+<p>
+  <strong>Invitee Email:</strong>
+  <%= @invite.invitee_email %>
+</p>
+<p>
+  <strong>Invitees:</strong>
+  <%= @invite.invitees %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_invite_path(@invite) %> |
+  <%= link_to "Destroy", @invite, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", invites_path %>
+</p>

@@ -1,0 +1,44 @@
+<div class="span-15 prepend-1">
+<div style="font-size:14px;border-bottom:1px solid #DDDDDD;">
+   <p>
+      Dear Friend,
+   </p>
+   <p>
+      Corruption has today reached its peak in India. Our Karnataka, a state that was till recently considered a Model state of India, is now being referred along with the most Corrupt.
+   </p>
+   <p>
+      We do not reflect this and we cannot lie down helplessly as this happens. While a person committing a crime is wrong, the person who meekly submits to it is no better.
+   </p>
+   <p>
+      Let us come together in a never-before strength to lend a lethal blow to Corruption.
+      Join me in one of <strong>Saaku's</strong>events, <%= @event.title %> on <strong><%= @event.start_date.strftime('%d %m %Y') %> at <%= @event.start_date.strftime('%H:%M %I') %> at <%= @event.venue_location %>, <%= @event.city %></strong>.
+   </p>
+   <p>
+      Looking forward to seeing you there
+   </p>
+</div>
+<hr/>
+
+<%= render 'layouts/form_error', :target => @invite %>
+<% form_for @invite, :url => "/events/#{@event.id}/send_invite" do |f| %>
+  <p>
+    <%= f.label 'Your Name *' %>
+    <%= f.text_field :inviter_name, :size => 45 %>
+  </p>
+  <p>
+    <%= f.label 'Your Email ID *' %>
+    <%= f.text_field :inviter_email, :size => 45 %>
+  </p>
+  <p>
+    <%= f.label 'Invitees Email IDs (comma-separated) *' %>
+    <%= f.text_area :invitees, :rows => 5, :cols => 50 %>
+  </p>
+   <p>
+      <%= render :partial => 'home/recaptcha' %> <br/>
+   </p>
+  <p><%= f.submit "Send Invite", :style => "width:380px;font-size:20px;height:40px;" %></p>
+<% end %>
+</div>
+<div class="span-7 append-1 last">
+  <%= render 'rhs' %>
+</div>

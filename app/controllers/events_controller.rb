@@ -56,6 +56,19 @@ class EventsController < ApplicationController
   end
 
   def invite
+    @event = Event.find(params[:id])
+    @invite = Invite.new()
+  end
+
+  def send_invite
+    @event = Event.find(params[:id])
+    @invite = Invite.new(params[:invite])
+    if verify_recaptcha(:model => @invite, :message => "Invalid reCAPTCHA!") && @invite.save
+      @invite.send_invite!(@event)
+      redirect_to @event, :notice => "Your invite has been sent!"
+    else
+      render :action => 'invite'
+    end
   end
 
   def register
