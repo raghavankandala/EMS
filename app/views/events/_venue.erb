@@ -2,7 +2,7 @@
   <% unless @event.venue_file_name.blank? %>
   <div style="text-align: center;"><span class="highlighted-text">Getting to the Venue</span></div>
    <div style="text-align: center;">(Click to view venue, directions and transport options)</div>
-   <a target="_blank" href="<%= @event.venue_directions_url %>" style="text-decoration: none;" title="Know how to get to the Venue"><img src="<%= @event.venue.url(:small) %>"></a>
+   <a target="_blank" href="<%= @event.venue_directions_url %>" style="text-decoration: none;" title="Know how to get to the Venue"><img style="border:1px solid #000;" src="<%= @event.venue.url(:small) %>"></a>
   <% else %>
   <div style="text-align: center;"><span class="highlighted-text"><A style="color: rgb(236, 31, 38); font-size: 20px; font-weight: bold;" target="_blank" href="<%= @event.venue_directions_url %>">Getting to the Venue</a></span></div>
   <% end %>
