@@ -16,4 +16,20 @@ class Event < ActiveRecord::Base
     (!self.facebook_url.blank? || !self.twitter_url.blank? || !self.orkut_url.blank?)
   end
 
+  def confirmed_supporters
+    self.event_registrations.where("rtype = 1 and confirmed = true")
+  end
+
+  def unconfirmed_supporters
+    self.event_registrations.where("rtype = 1 and confirmed = false")
+  end
+
+  def confirmed_volunteers
+    self.event_registrations.where("rtype = 2 and confirmed = true")
+  end
+
+  def unconfirmed_volunteers
+    self.event_registrations.where("rtype = 2 and confirmed = false")
+  end
+
 end

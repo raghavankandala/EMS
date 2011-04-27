@@ -7,8 +7,10 @@ Saaku20::Application.routes.draw do
   resources :events do
     member do
       get 'attend'
+      get 'attendees'
       get 'volunteer'
       get 'invite'
+      get 'fetch_attendees'
       post 'register'
       post 'send_invite'
     end

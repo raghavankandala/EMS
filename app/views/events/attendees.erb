@@ -1,0 +1,27 @@
+<%= javascript_include_tag 'OpenLayers-2.8-new.js', 'map.js' %>
+<div style="margin-left:12px;margin-right:16px;background-color: #EC1F26;color:#FFF;padding:5px;border:2px solid #000;text-align:center;font-weight:bold;font-size:14px;font-family:Verdana;">
+   <!--div style="padding-bottom:2px;">
+      <A style="color:#FFF;" href="http://www.facebook.com/event.php?eid=177335022283874">On Facebook</A>:
+      <span id="attending_count">102</span> said, they are attending |
+      <span id="may_attend_count">53</span> said, they may be attending |
+      <span id="not_replied_count">1668</span> have not yet replied
+   </div-->
+   <div> <!-- style="padding-top:2px; border-top: 1px solid #000;">
+   <On Saaku.in: -->
+   <span id="sk_attending_count"><%= @event.confirmed_supporters.length %></span> said they are attending |
+   <span id="sk_may_attend_count"><%= @event.unconfirmed_supporters.length %></span> said they may be attending
+   </div>
+</div>
+<div id="map" style="width:950px;height:500px;margin-left:auto;margin-right:auto;border:0px solid #000;margin:5px 0 5px 0;"></div>
+
+<script type="text/javascript">
+//  document.observe("dom:loaded", function() {
+   window.onload = function() {
+   initMap();
+   render(<%= raw(@locs) %>, {'centerMap': true});
+   fetch_attendees();
+   new PeriodicalExecuter(function() { fetch_attendees() }, 20);
+  }
+ // });
+</script>
+

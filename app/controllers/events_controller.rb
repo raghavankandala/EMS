@@ -48,6 +48,8 @@ class EventsController < ApplicationController
 
   def attendees
     @event = Event.find(params[:id])
+    @locs = @event.confirmed_supporters.collect {|c| {:lat => c.registration.locality.lat, :lon => c.registration.locality.lon } }.to_json
+    logger.info @locs
   end
 
   def volunteer
@@ -124,5 +126,13 @@ class EventsController < ApplicationController
       end
       redirect_to @er.event
    end
+
+  def fetch_attendees
+    @event = Event.find(params[:id])
+    render :update do |page|
+      page.replace_html 'sk_attending_count', @event.confirmed_supporters.length
+      page.replace_html 'sk_may_attend_count', @event.unconfirmed_supporters.length
+    end
+  end
 
 end
