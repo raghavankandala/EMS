@@ -11,7 +11,7 @@
    </p>
    <p>
       Let us come together in a never-before strength to lend a lethal blow to Corruption.
-      Join me in one of <strong>Saaku's</strong>events, <%= @event.title %> on <strong><%= @event.start_date.strftime('%d %m %Y') %> at <%= @event.start_date.strftime('%H:%M %I') %> at <%= @event.venue_location %>, <%= @event.city %></strong>.
+      Join me in one of <strong>Saaku's</strong>events, <%= @event.title %> on <strong><%= event_time(@event) %>, at <%= @event.venue_location %>, <%= @event.city %></strong>.
    </p>
    <p>
       Looking forward to seeing you there

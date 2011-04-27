@@ -12,7 +12,6 @@ class Event < ActiveRecord::Base
   has_many :event_registrations
   has_many :registrations, :through => :event_registrations
 
-
   def social_network?
     (!self.facebook_url.blank? || !self.twitter_url.blank? || !self.orkut_url.blank?)
   end

@@ -10,7 +10,7 @@
 </p>
 <p>
    Let us come together in a never-before strength to lend a lethal blow to Corruption.
-   Join me in one of <strong>Saaku's</strong> events against corruption on <strong><%= @event.start_date.strftime('%d %b %Y') %> <%= @event.start_date.strftime('%H:%M %I') %> at <%= @event.venue_location %>, <%= @event.city %></strong>. <%= link_to "Event Details", @event %>
+   Join me in one of <strong>Saaku's</strong> events against corruption on <strong><%= event_time(@event) %>, at <%= @event.venue_location %>, <%= @event.city %></strong>. <A href="http://localhost:3000/events/<%= @event.id %>">Event Details</A>
 </p>
 </p>
    Looking forward to seeing you there

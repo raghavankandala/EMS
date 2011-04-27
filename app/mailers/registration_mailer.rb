@@ -1,4 +1,6 @@
 class RegistrationMailer < ActionMailer::Base
+  helper ApplicationHelper 
+
   default :from => "info@saaku.in"
   
   def registration_confirmation(registration)

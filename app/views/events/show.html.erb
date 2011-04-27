@@ -3,16 +3,18 @@
   <div style="padding-left:10px;padding-right:10px;">
     <h3>
       <%= @event.title %>
+      <% if can? :edit, Event %>
       <span class="links">
         (
         <%= link_to_if(@event.end_date > Date.today(), "Edit", edit_event_path(@event)) %> |
         <%= link_to_if(@event.end_date > Date.today(), "Delete this event", @event, :confirm => 'Are you sure?', :method => :delete) %> 
         )
       </span>
+      <% end %>
     </h3>
     <p>
-      <%= (@event.start_date == @event.end_date) ? @event.start_date.strftime("%d %b %Y") : "#{@event.start_date.strftime('%d %b %Y')} - #{@event.end_date.strftime('%d %b %Y')}" %>
-      <%= @event.venue_location %>, <%= @event.city %>
+      <b><%= event_time(@event) %></b> <br/>
+      <b>At <%= @event.venue_location %>, <%= @event.city %></b>
     </p>     
     <div style="font-family: Verdana;font-size:14px;">
       <%= raw(@event.description) %>
