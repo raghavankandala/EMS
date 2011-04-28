@@ -1,11 +1,26 @@
 Dear <%= @er.registration.name %>,
 
+<% if @er.rtype == 1 %>
+
 <p>We're glad that you are concerned! Thanks for registering for the event <%= @er.event.title %>.</p>
-
 <p>Please click on the below link to confirm your registration.</p>
-
 <p>http://www.saaku.in/confirm_participation/<%= @er.guid %></p>
 <p>Please visit http://saaku.in for more details about the Anti-Corruption Events. </p>
+
+<% else %>
+<p>
+  Thank you for volunteering for the event <strong><%= @er.event.title %></strong>.
+</p>
+<p>
+   The <%= @er.registration.volunteering_area %> Team Coordinator will get in touch with you shortly.
+</p>
+<p>
+  Please <A href="http://www.saaku.in/confirm_participation/<%= @er.guid %>">confirm</A> your registration.
+</p>
+<p>
+  Alternatively you can copy past this url in your browser window - http://www.saaku.in/confirm_participation/<%= @er.guid %>
+</p>
+<% end %>
 
 <p>If you're not the correct person registered, kindly ignore this email.</p>
 

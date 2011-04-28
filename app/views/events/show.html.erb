@@ -1,5 +1,5 @@
 <!-- left hand side content -->
-<div class="span-16">
+<div class="span-16" style="font-family: Verdana; font-size:14px;padding-top:10px;">
   <div style="padding-left:10px;padding-right:10px;">
     <h3>
       <%= @event.title %>
@@ -12,13 +12,16 @@
       </span>
       <% end %>
     </h3>
-    <p>
-      <b><%= event_time(@event) %></b> <br/>
-      <b>At <%= @event.venue_location %>, <%= @event.city %></b>
-    </p>     
-    <div style="font-family: Verdana;font-size:14px;">
+    <div> 
       <%= raw(@event.description) %>
     </div>
+    <p>
+      <b>Date/Time:</b> <%= event_time(@event) %> <br/>
+      <b>Location:</b> <%= @event.venue_location %>, <%= @event.city %>
+    </p>     
+    <p>
+      SPREAD THE MESSAGE!!! - INDIA AGAINST CORRUPTION - BENGALURU
+    </p>
     <hr/>
     <%= render 'attend' %>
   </div>

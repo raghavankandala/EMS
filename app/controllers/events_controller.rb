@@ -77,7 +77,7 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @registration = Registration.new(params[:registration])
     @reg = Registration.find_by_email(@registration.email)
-    unless verify_recaptcha(:model => @registration, :message => "Invalid reCAPTCHA!")
+    unless verify_recaptcha(:model => @registration, :message => "Invalid reCAPTCHA!") && @registration.valid?
       if @registration.rtype == 1
         render :action => 'attend'
       elsif @registration.rtype == 2
@@ -94,10 +94,11 @@ class EventsController < ApplicationController
         return;
       else
         if @registration.rtype == @er.rtype
-          redirect_to @event, :notice => "A registration with this email address already exists!"
+          redirect_to @event, :notice => "You have already registered for this event!"
           return;
         else
           @er.update_attributes({:rtype => @registration.rtype, :guid => EventRegistration.gen_guid})
+          @er.registration.update_attributes({:volunteering_area => @registration.volunteering_area, :volunteer_description => @registration.volunteer_description})
           RegistrationMailer.event_participation_confirmation(@er).deliver
           redirect_to @event, :notice => "Thank you for extending your support to the event! A confirmation email has been sent to your email address"
           return;

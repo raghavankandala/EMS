@@ -5,12 +5,14 @@ class RegistrationMailer < ActionMailer::Base
   
   def registration_confirmation(registration)
     @registration = registration
-    mail(:to => registration.email, :subject => "[Saaku] Registration Confirmation")
+    subject = "[Saaku] " << @registration.rtype == 2 ? " Volunteer Registration Confirmation" : " Registration Confirmation" 
+    mail(:to => registration.email, :subject => subject)
   end
 
   def event_participation_confirmation(eventregistration)
     @er = eventregistration
-    mail(:to => eventregistration.registration.email, :subject => "[Saaku] Event Registration Confirmation")
+    subject = "[Saaku] " << @er.rtype == 2 ? " Volunteer Registration Confirmation" : " Event Registration Confirmation" 
+    mail(:to => eventregistration.registration.email, :subject => subject)
   end
 
   def send_invitation(event, invitee_email, inviter_name)

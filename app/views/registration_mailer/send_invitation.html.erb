@@ -1,25 +1,13 @@
 <div style="font-size:14px;">
-<p>
-   Dear Friend,
-</p>
-<p>
-   Corruption has today reached its peak in India. Our Karnataka, a state that was till recently considered a Model state of India, is now being referred along with the most Corrupt.
-</p>
-<p>
-   We do not reflect this and we cannot lie down helplessly as this happens. While a person committing a crime is wrong, the person who meekly submits to it is no better.
-</p>
-<p>
-   Let us come together in a never-before strength to lend a lethal blow to Corruption.
-   Join me in one of <strong>Saaku's</strong> events against corruption on <strong><%= event_time(@event) %>, at <%= @event.venue_location %>, <%= @event.city %></strong>. <A href="http://localhost:3000/events/<%= @event.id %>">Event Details</A>
-</p>
-</p>
-   Looking forward to seeing you there
-</p><br/><br/>
-</div>
+  <p> Dear Friend, </p>
+  <div> <%= raw(@event.description) %> </div>
+  <div>
+    <p> <strong>Date/Time:</strong> <%= event_time(@event) %> </p>
+    <p> <strong>Location:</strong> <%= @event.venue_location %>, <%= @event.city %> </p>
+  </div>
 
-<p>Please visit http://saaku.in for more details on this event.</p>
-
-<p>Saaku Team.</p>
-<hr/>
-You have been referred to us by your friend <b><%= @inviter_name %></b>
+  <p><A href="http://www.saaku.in/events/<%= @event.cached_slug %>">Event Details</A>. Looking forward to seeing you there.</p>
+  <p>Saaku Team.</p>
+  <hr/>
+  You have been referred to us by your friend <b><%= @inviter_name %></b>
 </div>
