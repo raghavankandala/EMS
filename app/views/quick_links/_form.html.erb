@@ -1,0 +1,26 @@
+<div class='form'>
+<%= render 'layouts/form_error', :target => @quick_link %>
+<%= form_for @quick_link, :html => { :multipart => true } do |f| %>
+  <p>
+    <%= f.label "Please provide a Title/Label" %>
+    <%= f.text_field :title %> <span class="hint">( Eg: The Jan Lokpal Bill )</span>
+  </p>
+  <p id="internal">
+    <%= f.label "Attach a file"%>  
+    <%= f.file_field :attachment %>  
+    Or <A href="javascript:void(null);" onClick="external_quick_link(true);">I want link this to an external website or Resource</A> <br/>
+    <span class="hint">( Note: Only PDFs can be attached )</span>
+  </p>
+  <%= f.hidden_field :external %>
+  <!--p>
+    <input type="checkbox" name="quick_link[external]" value="1" <%= "checked='checked'" if @quick_link.external? %> onClick="external_quick_link(this);"> <label style="display:inline;">External Link</label>
+  </p-->
+  <p id="external" style="<%= (!@quick_link.external.blank? && !@quick_link.external?) ? '' : 'display:none;' %>">
+    <%= f.label "Url to the external website/resource"%>
+    <%= f.text_field :external_link %>
+    Or <A href="javascript:void(null);" onClick="external_quick_link(false);">I want to attach a file</A>
+  </p>
+  <br/>
+  <p><%= f.submit %></p>
+<% end %>
+</div>

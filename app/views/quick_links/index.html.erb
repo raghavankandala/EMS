@@ -1,0 +1,17 @@
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Link</th>
+  </tr>
+  <% for quick_link in @quick_links %>
+    <tr>
+      <td><%= quick_link.title %></td>
+      <td><%= link_to "Access link", quick_link.external? ? quick_link.external_link : quick_link.attachment.url %></td>
+      <td><%= link_to "Show", quick_link %></td>
+      <td><%= link_to "Edit", edit_quick_link_path(quick_link) %></td>
+      <td><%= link_to "Destroy", quick_link, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Quick Link", new_quick_link_path %></p>

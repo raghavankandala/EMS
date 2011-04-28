@@ -13,6 +13,19 @@ function hideFlashMessage() {
    }
 }
 
+function external_quick_link(estatus) {
+  if(estatus) {
+    $('external').show();
+    $('internal').hide();
+    $('quick_link_external').value = "1";
+  }
+  else {
+    $('external').hide();
+    $('internal').show();
+    $('quick_link_external').value = "";
+  }
+}
+
 function IamAStudent(checkbox_obj) {
 	if(checkbox_obj.checked) {
 		$("college_select").show();

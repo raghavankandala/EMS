@@ -158,6 +158,8 @@ div.form {
   font-size: 14px;
 }
 
+div.form p { margin: 5px 0 5px 0 }
+
 form p label { display: block; }
 
 form p { margin: 0; }
@@ -302,3 +304,5 @@ div.white A { color: #EC1F26; }
 table.auto_width tr td div { width: auto; text-align: center;}
 h3 span.links A { font-size: 12px; color:blue;}
 h3 span.links { font-size: 12px; }
+
+span.hint { font-style:italic; font-size: 10px; }

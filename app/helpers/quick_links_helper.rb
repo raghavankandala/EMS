@@ -1,0 +1,2 @@
+module QuickLinksHelper
+end

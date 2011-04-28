@@ -1,5 +1,7 @@
 Saaku20::Application.routes.draw do
 
+  resources :quick_links
+
   resources :invites
   resources :registrations
   resources :localities
