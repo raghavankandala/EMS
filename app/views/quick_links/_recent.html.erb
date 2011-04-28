@@ -1,5 +1,5 @@
 <% QuickLink.order('updated_at DESC').limit(10).each do |ql| %>
-  <div class="colorful <%= cycle('orange', 'white', 'green', 'white') %>">
+  <div class="colorful <%= cycle('dark', 'light') %>" >
     <% if ql.external? %>
       <A href="<%= ql.external_link %>" target="_blank"><%= ql.title %></A>
     <% else %>
