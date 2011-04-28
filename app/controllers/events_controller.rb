@@ -122,12 +122,14 @@ class EventsController < ApplicationController
   def confirm_participation
       @er = EventRegistration.find_by_guid(params[:guid])
       if @er.nil?
-         flash[:error] = "Sorry! Could not find a registration entry with the given guid! Please make sure the link is copy pasted properly or send an email to admin@saaku.in with your name and email address with which you registered."
+         message = "Sorry! Could not find a registration entry with the given guid! Please make sure the link is copy pasted properly or send an email to admin@saaku.in with your name and email address with which you registered."
       else
          @er.mark_confirmed
-         flash[:notice] = "Thank you for confirming your participation in the event <b>#{@er.event.title}</b>! Please spread a word about this event to your friends and colleagues by <A href='/events/#{@er.event.id}/invite'>Inviting</A> them to register!"
+         message = "Thank you for confirming your participation in the event " if @er.rtype == 1
+         message = "Thank you for your willingness to volunteer for the event " if @er.rtype == 1
+         message << "<b>#{@er.event.title}</b>! Please spread a word about this event to your friends and colleagues by <A href='/events/#{@er.event.cached_slug}/invite'>Inviting</A> them to register!"
       end
-      redirect_to @er.event
+      redirect_to @er.event, :notice => message
    end
 
   def fetch_attendees
