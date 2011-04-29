@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+
+      <%= render :partial => 'layouts/meta' %>
+      <%= render :partial => 'layouts/title' %>
+
+      <%= render :partial => 'layouts/stylesheets' %>
+      <%= stylesheet_link_tag 'application', 'formtastic' %>
+      <%= render :partial => 'layouts/javascripts' %>
+
+      <%= render :partial => 'layouts/ga' %>
+      <%= yield(:head) %>
+</head>
+
+  <body>
+		<div class="container">
+			<div class="span-24 header">
+				<div class="span-6">
+              <A href="/"><img src="/images/saaku_new_logo.png" /></A>
+				</div>
+				<div class="span-18 last">
+					<%= render :partial => 'layouts/menulinks' %>
+				</div>
+			</div>
+
+			<div class="span-24">
+				<%= render :partial => 'layouts/flash_messages' %>
+			</div>
+
+			<div class = "span-24 last" >
+			  <div class = "main_content">
+			    <%= yield(:main_content) %>
+			  </div>
+			</div>
+
+        <div class="span-24 last">
+          <div style="background-color:#EC1F26;height:20px;">&nbsp;</div>
+        </div>
+
+		</div>
+  </body>
+</html>
+
+<script type="text/javascript">
+	flash_text();
+	new PeriodicalExecuter(flash_text, 20);
+	new PeriodicalExecuter(announcement, 30);
+</script>
+

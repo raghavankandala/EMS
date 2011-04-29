@@ -1,0 +1,24 @@
+<% content_for :main_content do %>
+  <div class = "page_header">
+    Broadcast Messages
+  </div>
+  <% if can? :create, BroadcastMessage.new %>
+    <%= link_to "New Message", new_admin_broadcast_message_path %>
+  <% end %>
+  <% unless @broadcast_messages.blank? %>
+    <%= will_paginate @broadcast_messages %>
+    <%= @broadcast_messages.each do |message| %>
+      <li class = "records_listing">
+        <%= message.subject %>
+        <br>
+        <% if can? :destroy, message %>
+          <%= link_to "Destroy", admin_broadcast_message_path(message), :method => :delete %>
+        <% end %>
+      </li>
+    <% end %>
+    <%= will_paginate @broadcast_messages %>
+  <% else %>
+    No Messages to show.
+  <% end %>
+<% end %>
+
