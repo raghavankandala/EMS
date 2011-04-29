@@ -1,5 +1,9 @@
 Saaku20::Application.routes.draw do
 
+  namespace "admin" do
+    resources :events, :users, :registrations, :broadcast_messages
+  end
+
   resources :merchandises
 
   resources :quick_links
@@ -36,3 +40,4 @@ Saaku20::Application.routes.draw do
   root :to => "home#index"
 
 end
+
