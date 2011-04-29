@@ -42,14 +42,14 @@ class RegistrationsController < ApplicationController
     def confirm
       @registration = Registration.find_by_guid(params[:id])
       if @registration.nil?
-         flash[:error] = "Sorry! Could not find a registration entry with the given guid! Please make sure the link is copy pasted properly or send an email to admin@saaku.in with your name and email address with which you registered."
+         #flash[:error] = "Sorry! Could not find a registration entry with the given guid! Please make sure the link is copy pasted properly or send an email to admin@saaku.in with your name and email address with which you registered."
       else
          @registration.mark_confirmed
          @er = EventRegistration.find_by_guid(params[:id])
          @er.mark_confirmed
          flash[:notice] = "You registration for the event is confirmed! Please spread a word about this event to your friends and colleagues by <A href='/events/<%= @er.event.id %>/invite'>Inviting</A> them to register!"
+         redirect_to @er.event 
       end
-      redirect_to @er.event 
    end
 
 end

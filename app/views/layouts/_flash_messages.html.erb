@@ -1,7 +1,5 @@
 <div class="flash_container">
 <%- flash.each do |name, msg| -%>
-   <% unless name.eql?('recaptcha_error') %>
 	 <%= content_tag :div, raw(msg), :id => "flash_#{name}" %> 
-   <% end %>
 <%- end -%>
 </div>
