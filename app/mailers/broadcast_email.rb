@@ -1,9 +1,9 @@
 class BroadcastEmail < ActionMailer::Base
   default :from => "shreyaslive@gmail.com"
 
-  def send_message(user)
-    @user = user[:content]
-    mail(:to => user[:email], :subject => user[:subject])
+  def send_message(message)
+    @content = message[:content]
+    mail(:to => message[:email], :subject => message[:subject])
   end
 
 end
