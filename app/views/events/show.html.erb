@@ -7,7 +7,8 @@
       <span class="links">
         (
         <%= link_to_if(@event.end_date > Date.today(), "Edit", edit_event_path(@event)) %> |
-        <%= link_to_if(@event.end_date > Date.today(), "Delete this event", @event, :confirm => 'Are you sure?', :method => :delete) %> 
+        <%= link_to_if(@event.end_date > Date.today(), "Delete this event", @event, :confirm => 'Are you sure?', :method => :delete) %> |
+        <%= link_to "Upload Merchandise", new_event_merchandise_path(@event) %>
         )
       </span>
       <% end %>

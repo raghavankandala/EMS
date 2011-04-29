@@ -13,6 +13,7 @@ class Event < ActiveRecord::Base
 
   has_many :event_registrations
   has_many :registrations, :through => :event_registrations
+  has_many :merchandises
 
   CITIES = ["Bangalore", "Mysore"]
 

@@ -1,4 +1,9 @@
   <div>
+    <% unless @event.merchandises.empty? %>
+        <p style="text-align: center; border-top: 1px dotted rgb(0, 0, 0); border-bottom: 1px dotted rgb(0, 0, 0); padding-bottom: 5px; margin-left: 11px; margin-top: 5px; padding-top: 5px; width: 278px;">
+          <a href="<%= event_merchandises_path(@event) %>" style="color: rgb(236, 31, 38); font-size: 20px; font-weight: bold;">Download Merchandise</a>
+        </p>
+    <% end %>
     <% unless @event.schedule.blank? %>
     <p>
       <%= render 'schedule' %>

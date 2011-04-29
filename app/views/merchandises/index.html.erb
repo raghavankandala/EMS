@@ -1,0 +1,66 @@
+<style>
+   table tr td { padding:20px; }
+   table tr td div { padding-bottom:10px; border-bottom:1px dotted #EC1F26; }
+   table tr td.middle { border-left : 1px dotted #EC1F26; border-right: 1px dotted #EC1F26; }
+   table tr.last td div { border-bottom:none; }
+</style>
+<div class="span-17">&nbsp;<%= will_paginate(@merchandises) %>&nbsp;</div>
+<div class="span-7 last">
+  <div style="text-align:right;padding-right:10px;">
+    <% unless @event.nil? %>
+     <%= link_to "Back to Event page", @event %>&nbsp; | &nbsp;
+    <% end %> 
+    <% if current_user %>
+     <%= link_to "Upload Merchandise", (@event.nil? ? new_merchandise_path : new_event_merchandise_path(@event)) %>
+    <% end %>
+  </div>
+</div>
+<div class="span-24">
+<div style="width:900px;margin:auto;">
+<% if @merchandises.empty? %>
+  <p>
+    No material has been uploaded for this event yet! 
+  </p>
+<% end %>
+<TABLE>
+  <% _row_open = false 
+    _col_index = 0
+    _per_row = 3 %>
+
+  <% @merchandises.each do |merchandise| %>
+    <% if (_col_index % _per_row) == 0 %> 
+      <% if _row_open %>
+        </TR>
+      <% end %>
+      <TR>
+      <% _row_open = true %>
+    <% end %>
+      <TD <%= "class='middle'" if ((_col_index-1)%_per_row == 0) %> >
+         <A href="<%= merchandise.material_link %>" target="_blank"><%= image_tag(merchandise.cover_image.url(:small), :size => '250x180')%></A><br/>
+         <div style="text-align:center;width:250px;">
+            <span class="highlighted-text"><%= merchandise.title %></span> <br/>
+            <% if merchandise.material_uploaded? %>
+              <A target="_blank" href="<%= merchandise.material.url %>">PDF</A> 
+            <% else %>
+              <A href="<%= merchandise.cover_image.url %>">High Resolution Image</A>
+            <% end %>
+         </div>
+      </TD>
+      <% _col_index = _col_index + 1 %>
+  <% end %>
+  <% if _row_open %>
+    </TR>
+  <% end %>
+</TABLE>
+</div>
+<div class="span-17">&nbsp;<%= will_paginate(@merchandises) %>&nbsp;</div>
+<div class="span-7 last">
+  <div style="text-align:right;padding-right:10px;">
+    <% unless @event.nil? %>
+      <%= link_to "Back to Event page", @event %>&nbsp; | &nbsp;
+    <% end %> 
+    <% if current_user %>
+      <%= link_to "Upload Merchandise", (@event.nil? ? new_merchandise_path : new_event_merchandise_path(@event)) %>
+    <% end %>
+  </div>
+</div>

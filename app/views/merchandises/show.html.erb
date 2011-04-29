@@ -1,0 +1,38 @@
+<p>
+  <strong>Title:</strong>
+  <%= @merchandise.title %>
+</p>
+<p>
+  <strong>Cover Image File Name:</strong>
+  <%= @merchandise.cover_image_file_name %>
+</p>
+<p>
+  <strong>Cover Image Content Type:</strong>
+  <%= @merchandise.cover_image_content_type %>
+</p>
+<p>
+  <strong>Cover Image Size:</strong>
+  <%= @merchandise.cover_image_size %>
+</p>
+<p>
+  <strong>Material File Name:</strong>
+  <%= @merchandise.material_file_name %>
+</p>
+<p>
+  <strong>Material Content Type:</strong>
+  <%= @merchandise.material_content_type %>
+</p>
+<p>
+  <strong>Material Size:</strong>
+  <%= @merchandise.material_size %>
+</p>
+<p>
+  <strong>Event:</strong>
+  <%= @merchandise.event_id %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_merchandise_path(@merchandise) %> |
+  <%= link_to "Destroy", @merchandise, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", merchandises_path %>
+</p>

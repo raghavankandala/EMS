@@ -1,0 +1,26 @@
+<%= form_for @merchandise, :html => {:multipart => true} do |f| %>
+  <%= render 'layouts/form_error', :target => @merchandise%>
+  <p>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label "Cover Image *" %>
+    <%= f.file_field :cover_image %>
+  </p>
+  
+  <p>
+    <%= f.label "High Resolution Image or Document (optional)" %>
+    <%= f.file_field :material %> 
+  </p>
+  <p>
+    Note: The High Resolution Image or Document is optional. If the merchandise is an Image, then upload it as Cover Image. <br/>
+          But if you have a PDF, then please create a cover image of the PDF (one page) and upload it as Cover Image and 
+          upload the PDF itsef as High Resolution Image or Document.
+    
+  </p>
+  <p>
+    <%= f.hidden_field :event_id %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>
