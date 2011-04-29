@@ -14,6 +14,8 @@ div.container {
 
 div.content {
 	margin-top:5px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 div.header {

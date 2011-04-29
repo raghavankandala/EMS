@@ -1,6 +1,5 @@
-<div style="margin-left: 11px; border: 2px solid rgb(0, 0, 0); font-family: Verdana; margin-top: 5px;margin-bottom:10px;">
-   <p style="margin: 0pt; font-size: 16px; padding: 5px; background-color: rgb(236, 31, 38); color: rgb(255, 255, 255); font-weight: bold; text-align: center;">Upcoming Events</p>
-   <p style="font-size: 14px; padding: 0px 10px 10px; margin: 0pt; font-weight: bold;"></p>
+<div style="padding:5px;border:1px dotted #000;height:auto;margin-bottom:5px;" class="quick-links">
+   <p style="padding-left:10px;border-bottom:1px dotted #000;"> <span class="highlighted-text">Upcoming Events</span></p>
       <ul class="pretty-listing">
           <% @upcoming_events.each do |event| %>
           <li><%= event.title %> <%= event_time(event) %> - <A href="/events/<%= event.cached_slug %>" style="font-size:12px;">Read More</A></li>
