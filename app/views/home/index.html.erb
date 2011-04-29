@@ -1,55 +1,61 @@
-<div class="span-15 prepend-1">
-<p style="font-family:Verdana;font-size:14px;text-align:justify;">
-  Everyone is unhappy about corruption, but very few of us know how we can fight it. Saaku is a state-wide campaign against corruption where we can overcome this problem by working together, learning how effective different methods of corruption-fighting are, and sharing our experiences to make governance better throughout the state. At Saaku, you can volunteer to fight corruption, seek others' help in tackling corruption in your area, and also learn to influence public decisions by linking your voting choices to clean governance.
-</p>
-              <% unless @upcoming_events.empty? %>
-              <div>
-                <%= render 'events/upcoming' %>
-              </div>
-              <% end %>
-              <TABLE>
-                <TR>
-                  <TD class="bullet"><img src="/images/saaku_bullet_new.png"></TD>
-                  <TD valign="middle">
-                      <div style="font-weight:bold;font-size:16px;">
-                        Fight against corruption every day
-                      </div>
-                      <div style="font-weight:normal;font-size:12px;">
-                        small victories that add up to a lot <A href="/fight">Read more</A>
-                      </div>
-                  </TD>
-                </TR>
-                <TR>
-                  <TD class="bullet"><img src="/images/saaku_bullet_new.png"></TD>
-                  <TD valign="middle">
-                      <div style="font-weight:bold;font-size:16px;">
-                        Awareness and Networking
-                      </div>
-                      <div style="font-weight:normal;font-size:12px;">
-                        Building CHAMPIONS against corruption
-                      </div>
-                  </TD>
-                </TR>
-                <TR>
-                  <TD class="bullet"><img src="/images/saaku_bullet_new.png"></TD>
-                  <TD valign="middle">
-                      <div style="font-weight:bold;font-size:16px;">
-                        Vote against Corruption
-                      </div>
-                      <div style="font-weight:normal;font-size:12px;">
-                        Let your ballot speak for you. <A href="/voteright">Read more</A>
-                      </div>
-                  </TD>
-                </TR>
-              </TABLE>
-              <hr/>
-              <%= render 'quick_links/recent' %>
-            </div>
-            <div class="span-8 last">
-              <TABLE border=1 class="colorful">
-                <TR><TD><div><A href="#">Coordinators</A></div></TD> <TD><div><A href="#">Contribute</A></div></TD></TR>
-                <TR><TD><div><A href="#">Complaints</A></div></TD> <TD><div><A target="_blank" href="https://www.facebook.com/pages/Saaku/218303511518787">Facebook</A></div></TD>
-                </TR>
-              </TABLE>
-              <iframe src="http://is.gd/b8039b" width="300" height="300"></iframe>
-            </div>
+<div class="span-16" style="padding-top:5px;">
+  <p style="font-family:Verdana;font-size:14px;text-align:justify;">
+    Everyone is unhappy about corruption, but very few of us know how we can fight it. Saaku is a state-wide campaign against corruption where we can overcome this problem by working together, learning how effective different methods of corruption-fighting are, and sharing our experiences to make governance better throughout the state. At Saaku, you can volunteer to fight corruption, seek others' help in tackling corruption in your area, and also learn to influence public decisions by linking your voting choices to clean governance.
+  </p>
+  <% unless @upcoming_events.empty? %>
+  <div>
+    <%= render 'events/upcoming' %>
+  </div>
+  <% end %>
+  <div class="span-10">
+    <TABLE>
+      <TR>
+        <TD class="bullet"><img src="/images/saaku_bullet_new.png"></TD>
+        <TD valign="middle">
+          <div style="font-weight:bold;font-size:16px;">
+            Fight against corruption every day
+          </div>
+          <div style="font-weight:normal;font-size:12px;">
+            small victories that add up to a lot <A href="/fight">Read more</A>
+          </div>
+        </TD>
+      </TR>
+      <TR>
+        <TD class="bullet"><img src="/images/saaku_bullet_new.png"></TD>
+        <TD valign="middle">
+          <div style="font-weight:bold;font-size:16px;">
+            Awareness and Networking
+          </div>
+          <div style="font-weight:normal;font-size:12px;">
+            Building CHAMPIONS against corruption
+          </div>
+        </TD>
+      </TR>
+      <TR>
+        <TD class="bullet"><img src="/images/saaku_bullet_new.png"></TD>
+        <TD valign="middle">
+          <div style="font-weight:bold;font-size:16px;">
+            Vote against Corruption
+          </div>
+          <div style="font-weight:normal;font-size:12px;">
+            Let your ballot speak for you. <A href="/voteright">Read more</A>
+          </div>
+        </TD>
+      </TR>
+    </TABLE>
+  </div>
+  <div class="span-5 last">
+    <%= render 'social_connect' %>
+  </div>
+</div>
+<div class="span-8 last">
+  <div style="border-left:1px dotted #000;margin-bottom:5px;margin-right:10px;">
+    <%= render 'quick_links/recent' %>
+    <!--TABLE border=1 class="colorful">
+      <TR><TD><div><A href="#">Coordinators</A></div></TD> <TD><div><A href="#">Contribute</A></div></TD></TR>
+      <TR><TD><div><A href="#">Complaints</A></div></TD> <TD><div><A target="_blank" href="https://www.facebook.com/pages/Saaku/218303511518787">Facebook</A></div></TD>
+      </TR>
+    </TABLE-->
+    <iframe src="http://is.gd/b8039b" width="285" height="300" style="margin-left:5px;margin-top:2px;"></iframe>
+  </div>
+</div>
