@@ -310,3 +310,7 @@ h3 span.links { font-size: 12px; }
 span.hint { font-style:italic; font-size: 10px; }
 
 div#flash_recaptcha_error { display:none; }
+
+div.pagination { text-align: right;margin-right:20px;}
+
+div.links A { color: blue; font-size:12px;}

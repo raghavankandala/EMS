@@ -1,0 +1,18 @@
+<div style="text-align:center;"><%= will_paginate(@press_releases) %></div>
+<hr/>
+<TABLE width="100%" border="1" class="pretty">
+	<TR class="header">
+		<TD>Title</TD>
+		<TD>Date</TD>
+		<TD></TD>
+	</TR>
+	<% @press_releases.each do |reg| %>
+		<TR> 
+			<TD><%= link_to reg.title, reg%></TD>
+			<TD><%= reg.pr_date.strftime("%d-%m-%Y")%></TD>
+		 	<TD><%= link_to "Edit", edit_press_release_path(reg) %> | <%= link_to "Destroy", reg, :confirm => 'Are you sure?', :method => :delete %>
+			</TD>
+		</TR>
+	<% end %>
+</TABLE>
+<div style="text-align:center;"><%= will_paginate(@press_releases) %></div>

@@ -1,6 +1,10 @@
 <div class="user-nav">
   <% if current_user %>
-      <A href="/events">Manage</A> | <%= current_user.email %> | <A href="/logout">Logout</A>
+    <%= link_to 'Account Settings', "/change_password" %>
+    <% if current_user.has_role?('admin') %>
+      | <%= link_to 'Manage', admin_events_path %> 
+    <% end %> 
+    | <%= current_user.email %> | <A href="/logout">Logout</A>
   <% end %>
 </div>
 

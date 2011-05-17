@@ -1,0 +1,17 @@
+<h2> Press releases (Internal and External)</h2>
+<%= will_paginate(@press_releases) %>
+<ul class="pretty-listing">
+<% @press_releases.each do |pr| %>
+     <li style="padding-bottom:10px;border-bottom:1px dotted #EC1F26;">
+        <% if pr.external? %>
+          <A target='_blank' href="<%= pr.url %>"><%= pr.title %></A> 
+          <br/>-- <%= pr.pr_date.strftime("%A, %d %b %Y") %> (<%= pr.source %>)
+        <% else %>
+          <%= link_to pr.title, pr %>
+          <br/>-- <%= pr.pr_date.strftime("%A, %d %b %Y") %>
+        <% end %>
+      </li>
+<% end %>
+</ul>
+<%= will_paginate(@press_releases) %>
+<p><%= link_to "New Press Release", new_press_release_path %></p>

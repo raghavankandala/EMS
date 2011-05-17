@@ -1,8 +1,21 @@
 Saaku20::Application.routes.draw do
 
-  namespace "admin" do
-    resources :events, :users, :registrations, :broadcast_messages
+  resources :press_releases do
+    member do 
+      get 'recent'
+    end
   end
+
+  namespace "admin" do
+    resources :events, :users, :registrations, :broadcast_messages, :press_releases, :quick_links
+  end
+  
+  #  resources :users do 
+  #  member do 
+  #    get 'change_password'
+  #    post 'set_password'
+  #  end
+  #end
 
   resources :merchandises
 
@@ -32,6 +45,9 @@ Saaku20::Application.routes.draw do
   match "/confirm_participation/:guid" => "events#confirm_participation"
   match "/registrants/:id" => "events#fetch_attendees"
   match "/artwork" => "merchandises#index"
+  match "/press" => "press_releases#recent"
+  match "/change_password" => "users#change_password"
+  match "/set_password" => "users#set_password"
   get "users/destroy"
   resources :users
   resources :sessions

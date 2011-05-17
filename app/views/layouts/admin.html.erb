@@ -7,15 +7,11 @@
       <%= render :partial => 'layouts/title' %>
 
       <%= render :partial => 'layouts/stylesheets' %>
-      <%= stylesheet_link_tag 'application', 'formtastic' %>
       <%= render :partial => 'layouts/javascripts' %>
-
-      <%= render :partial => 'layouts/ga' %>
-      <%= yield(:head) %>
 </head>
 
   <body>
-		<div class="container">
+		<div class="container"> 
 			<div class="span-24 header">
 				<div class="span-6">
               <A href="/"><img src="/images/saaku_new_logo.png" /></A>
@@ -24,15 +20,16 @@
 					<%= render :partial => 'layouts/menulinks' %>
 				</div>
 			</div>
+      <div class="span-24 last">
+        <%= render :partial => 'layouts/adminlinks'%>
+      </div>
 
 			<div class="span-24">
 				<%= render :partial => 'layouts/flash_messages' %>
 			</div>
 
-			<div class = "span-24 last" >
-			  <div class = "main_content">
-			    <%= yield(:main_content) %>
-			  </div>
+			<div class="span-24 content">
+      		<%= yield %>
 			</div>
 
         <div class="span-24 last">
@@ -48,4 +45,3 @@
 	new PeriodicalExecuter(flash_text, 20);
 	new PeriodicalExecuter(announcement, 30);
 </script>
-

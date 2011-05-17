@@ -1,0 +1,17 @@
+<p>
+  <strong>Title:</strong>
+  <%= @quick_link.title %>
+</p>
+<p>
+  <% if @quick_link.external? %>
+    <A href="<%= @quick_link.external_link %>" target="_blank">click here</A>
+  <% else %>
+    <%= link_to "Read More", @quick_link.attachment.url %>
+  <% end %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_quick_link_path(@quick_link) %> |
+  <%= link_to "Destroy", @quick_link, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", quick_links_path %>
+</p>

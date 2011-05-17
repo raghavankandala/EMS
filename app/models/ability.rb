@@ -9,6 +9,7 @@ class Ability
     else
       can :read, :all
       can [:attend, :attendees, :volunteer, :invite, :send_invite, :register, :confirm_participation], [Event]
+      can [:recent], [PressRelease]
     end
   end
   

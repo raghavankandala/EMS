@@ -1,46 +1,10 @@
 class EventsController < ApplicationController
   load_and_authorize_resource 
-
-  def index
-    @events = Event.all
-  end
-
+  
   def show
     @event = Event.find(params[:id])
   end
-
-  def new
-    @event = Event.new
-  end
-
-  def create
-    @event = Event.new(params[:event])
-    if @event.save
-      redirect_to @event, :notice => "Successfully created event."
-    else
-      render :action => 'new'
-    end
-  end
-
-  def edit
-    @event = Event.find(params[:id])
-  end
-
-  def update
-    @event = Event.find(params[:id])
-    if @event.update_attributes(params[:event])
-      redirect_to @event, :notice  => "Successfully updated event."
-    else
-      render :action => 'edit'
-    end
-  end
-
-  def destroy
-    @event = Event.find(params[:id])
-    @event.destroy
-    redirect_to events_url, :notice => "Successfully destroyed event."
-  end
-
+  
   def attend
     @event = Event.find(params[:id])
     @registration = Registration.new({:rtype => 1, :city => @event.city})
@@ -49,7 +13,6 @@ class EventsController < ApplicationController
   def attendees
     @event = Event.find(params[:id])
     @locs = @event.confirmed_supporters.collect {|c| {:lat => c.registration.locality.lat, :lon => c.registration.locality.lon } }.to_json
-    logger.info @locs
   end
 
   def volunteer
@@ -139,6 +102,8 @@ class EventsController < ApplicationController
       page.replace_html 'sk_attending_count', @event.confirmed_supporters.length
       page.replace_html 'sk_may_attend_count', @event.unconfirmed_supporters.length
     end
+    render :layout => 'application'
   end
+
 
 end

@@ -1,0 +1,29 @@
+<div style="width:850px;margin:auto;">
+<%= form_for @press_release do |f| %>
+  <%= render 'layouts/form_error', :target => @press_release %>
+  <p>
+    <label> Title </label>
+    <%= f.text_field :title, :size => 80 %>
+  </p>
+  <p>
+    <label> Published On </label>
+    <%= f.date_select :pr_date, {:order => [:day, :month, :year]} %>
+  </p>
+  <p>
+    <input type="checkbox" name="press_release[external]" value="1" <%= "checked='checked'" if @press_release.external %>	onClick="externalPr(this);" />
+	 <label style="display:inline;"> External Press Release </label>
+  </p><br/>
+  <p style="display:none;" id="external_pr_container">
+		<label>Url to the Press Release</label>
+    	<%= f.text_field :url, :size => 80 %>
+    <label>Source</label>
+    <%= f.text_field :source, :size => 80 %>
+  </p>
+  <p style="" id="internal_pr_container">
+    <label> Content</label>
+	 <%= f.cktext_area :content %>
+  </p><br/>
+  <p><%= f.submit "Create Press Release" %></p>
+	<br/>
+<% end %>
+</div>

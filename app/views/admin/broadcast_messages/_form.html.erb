@@ -1,12 +1,14 @@
+<div class="form">
+<h3>Email Sender</h3>
 <%= form_for [:admin, @broadcast_message], :html => {:multipart => true}  do |f| %>
   <%= render 'layouts/form_error', :target => @broadcast_message %>
   <p>
-    <%= f.label "To" %>
-    <%= f.text_field :to, :size => 80 %>
+    <%= f.label raw("To <span style='font-weight:normal;font-size:11px;'>(Use Comma to separate multiple email addresses)</span>") %>
+    <%= f.text_area :to, :rows => 5, :cols => 100 %>
   </p>
   <p>
     <%= f.label "Subject" %>
-    <%= f.text_field :subject, :size => 80 %>
+    <%= f.text_field :subject, :style => 'width:835px;' %>
   </p>
   <p>
     <%= f.label "Content" %>
@@ -14,4 +16,5 @@
   </p>
   <%= f.submit_tag "Send" %>
 <% end %>
+</div>
 
