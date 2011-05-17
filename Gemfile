@@ -15,6 +15,8 @@ gem 'nifty-generators', :group => :development
 gem 'meta_search'
 gem 'ckeditor', '3.4.2.pre'
 gem 'recaptcha', :require => 'recaptcha/rails'
+gem 'delayed_job'
+gem 'formtastic', '~> 1.2.3'
 #gem 'prawn'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -43,3 +45,4 @@ gem 'recaptcha', :require => 'recaptcha/rails'
 #   gem 'webrat'
 # end
 gem "mocha", :group => :test
+
