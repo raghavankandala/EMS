@@ -7,7 +7,7 @@ Saaku20::Application.routes.draw do
   end
 
   namespace "admin" do
-    resources :events, :users, :registrations, :broadcast_messages, :press_releases, :quick_links
+    resources :events, :users, :registrations, :broadcast_messages, :press_releases, :quick_links, :merchandises
   end
   
   #  resources :users do 

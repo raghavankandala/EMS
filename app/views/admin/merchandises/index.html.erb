@@ -10,11 +10,12 @@
     <% unless @event.nil? %>
      <%= link_to "Back to Event page", @event %>&nbsp; | &nbsp;
     <% end %> 
-    <% if current_user %>
-     <%= link_to "Upload Merchandise", (@event.nil? ? new_merchandise_path : new_event_merchandise_path(@event)) %>
+    <% if current_user && current_user.has_role?('admin') %>
+     <%= link_to "Upload Merchandise", (@event.nil? ? new_admin_merchandise_path : new_event_merchandise_path(@event)) %>
     <% end %>
   </div>
 </div>
+
 <div class="span-24">
 <div style="width:900px;margin:auto;">
 <% if @merchandises.empty? %>
@@ -45,6 +46,12 @@
               <A href="<%= merchandise.cover_image.url %>">High Resolution Image</A>
             <% end %>
          </div>
+         <% if current_user && current_user.has_role?('admin') %>
+           <div class="links">
+            <%= link_to 'Edit', edit_admin_merchandise_path(merchandise) %> |
+            <%= link_to 'Delete', [:admin, merchandise], :method => 'DELETE', :confirm => 'Are you sure about deleting this poster?'%>
+           </div>
+         <% end %>
       </TD>
       <% _col_index = _col_index + 1 %>
   <% end %>
@@ -53,6 +60,7 @@
   <% end %>
 </TABLE>
 </div>
+
 <div class="span-17">&nbsp;<%= will_paginate(@merchandises) %>&nbsp;</div>
 <div class="span-7 last">
   <div style="text-align:right;padding-right:10px;">

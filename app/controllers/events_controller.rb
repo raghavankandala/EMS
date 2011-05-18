@@ -57,9 +57,11 @@ class EventsController < ApplicationController
         return;
       else
         if @registration.rtype == @er.rtype
+          @reg.update_attributes(params[:registration])
           redirect_to @event, :notice => "You have already registered for this event!"
           return;
         else
+          @reg.update_attributes(params[:registration])
           @er.update_attributes({:rtype => @registration.rtype, :guid => EventRegistration.gen_guid})
           @er.registration.update_attributes({:volunteering_area => @registration.volunteering_area, :volunteer_description => @registration.volunteer_description})
           RegistrationMailer.event_participation_confirmation(@er).deliver

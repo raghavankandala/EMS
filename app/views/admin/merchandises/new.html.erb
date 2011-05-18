@@ -1,0 +1,6 @@
+<div class="form">
+<h3> Upload Merchandise <%= raw(" for event <b>#{@merchandise.event.title}</b> ") unless @merchandise.event.blank? %></h3>
+<%= render 'form' %>
+
+<p><%= link_to "Back to List", merchandises_path %></p>
+</div>
