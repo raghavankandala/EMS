@@ -33,6 +33,10 @@ class Event < ActiveRecord::Base
   def unconfirmed_supporters
     self.event_registrations.where("rtype = 1 and confirmed = false")
   end
+  
+  def all_supporters
+    self.event_registrations.where("rtype = 1")
+  end
 
   def confirmed_volunteers
     self.event_registrations.where("rtype = 2 and confirmed = true")
@@ -41,5 +45,9 @@ class Event < ActiveRecord::Base
   def unconfirmed_volunteers
     self.event_registrations.where("rtype = 2 and confirmed = false")
   end
-
+  
+  def all_volunteers
+    self.event_registrations.where("rtype = 2")
+  end
+  
 end

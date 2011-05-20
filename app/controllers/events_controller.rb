@@ -103,8 +103,8 @@ class EventsController < ApplicationController
     render :update do |page|
       page.replace_html 'sk_attending_count', @event.confirmed_supporters.length
       page.replace_html 'sk_may_attend_count', @event.unconfirmed_supporters.length
+      page.replace_html 'sk_volunteer_count', @event.all_volunteers.length
     end
-    render :layout => 'application'
   end
 
 
