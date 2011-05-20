@@ -1,6 +1,4 @@
-<!-- left hand side content -->
-<div class="span-16" style="font-family: Verdana; font-size:14px;padding-top:10px;">
-  <div style="padding-left:10px;padding-right:10px;">
+<div class="span-24" style="padding-left:10px;padding-right:10px;margin-top:10px;">
     <h3>
       <%= @event.title %>
       <% if can? :edit, Event %>
@@ -13,11 +11,15 @@
       </span>
       <% end %>
     </h3>
-    <% if @event.cover_poster.url.match(/missing.png$/).nil? %>
-    <div>
-      <A href="<%= @event.cover_poster.url %>" target="_blank" title="Click to view higher resolution picture"><img src="<%= @event.cover_poster.url(:medium) %>" width="600" /></A>
-    </div>
+    <% if @event.cover_poster.url.match(/missing.png$/).nil? %>    
+      <A href="<%= @event.cover_poster.url %>" target="_blank" title="Click to view higher resolution picture"><img src="<%= @event.cover_poster.url(:large) %>" /></A>      
+    <% else %>
+      <hr style="width:630px;background-color:#000;" />
     <% end %>
+</div>
+<!-- left hand side content -->
+<div class="span-16" style="font-family: Verdana; font-size:14px;padding-top:0px;">
+  <div style="padding-left:10px;padding-right:10px;">
     <div> 
       <%= raw(@event.description) %>
     </div>
