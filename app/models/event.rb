@@ -50,4 +50,8 @@ class Event < ActiveRecord::Base
     self.event_registrations.where("rtype = 2")
   end
   
+  def all_registrants
+    self.event_registrations
+  end
+  
 end

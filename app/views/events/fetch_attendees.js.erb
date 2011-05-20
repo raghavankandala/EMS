@@ -1,0 +1,4 @@
+$("sk_attending_count").innerHTML = <%= @event.confirmed_supporters.length %>;
+$("sk_may_attend_count").innerHTML = <%= @event.unconfirmed_supporters.length %>;
+$("sk_volunteer_count").innerHTML = <%= @event.all_volunteers.length %>;
+render(<%= raw(@locs) %>, {'centerMap':true});
