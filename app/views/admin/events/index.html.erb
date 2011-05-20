@@ -15,10 +15,10 @@
       <td><%= event.venue_location %></td>
       <td><%= event.city %></td>
       <td><%= link_to "Show", event %></td>
-      <td><%= link_to "Edit", edit_event_path(event) %></td>
-      <td><%= link_to "Destroy", event, :confirm => 'Are you sure?', :method => :delete %></td>
+      <td><%= link_to "Edit", edit_admin_event_path(event) %></td>
+      <td><%= link_to "Destroy", [:admin,event], :confirm => 'Are you sure?', :method => :delete %></td>
     </tr>
   <% end %>
 </table>
 
-<p><%= link_to "New Event", new_event_path %></p>
+<p><%= link_to "New Event", new_admin_event_path %></p>

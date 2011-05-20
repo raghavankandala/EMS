@@ -9,6 +9,10 @@
     <%= f.cktext_area :description %>
   </p>
   <p>
+    <%= f.label :cover_poster %>
+    <%= f.file_field :cover_poster %>
+  </p>
+  <p>
     <%= f.label :start_date %>
     <%= f.datetime_select :start_date, {:order => [:day, :month, :year]} %>
   </p>

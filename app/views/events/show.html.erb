@@ -13,6 +13,11 @@
       </span>
       <% end %>
     </h3>
+    <% if @event.cover_poster.url.match(/missing.png$/).nil? %>
+    <div>
+      <img src="<%= @event.cover_poster.url(:medium) %>" width="600" />
+    </div>
+    <% end %>
     <div> 
       <%= raw(@event.description) %>
     </div>

@@ -1,8 +1,17 @@
-<div style="padding:5px;border:1px dotted #000;height:auto;margin-bottom:5px;" class="quick-links">
+<div style="padding:5px;padding-top:0;border-bottom:1px dotted #000;height:auto;margin-bottom:5px;" class="quick-links">
    <p style="padding-left:10px;border-bottom:1px dotted #000;"> <span class="highlighted-text">Upcoming Events</span></p>
-      <ul class="pretty-listing">
+      <ul class="pretty-listing" style="list-style-type:square;padding-left:20px;">
           <% @upcoming_events.each do |event| %>
-          <li><%= event.title %> <%= event_time(event) %> - <A href="/events/<%= event.cached_slug %>" style="font-size:12px;">Read More</A></li>
+          <li>
+            <span style="font-size: 14px; font-weight: bold; font-family: Verdana;">
+              <%= event.title %> <%= event_time(event) %>
+            </span> - 
+            <A href="/events/<%= event.cached_slug %>" style="font-size:12px;">Read More
+            <% if event.cover_poster.url.match(/missing.png$/).nil? %>
+              <img src="<%= event.cover_poster.url(:medium) %>" width="580" />
+            <% end %>
+            </A>
+          </li>
           <% end %>
       </ul>
 </div>
