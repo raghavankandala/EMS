@@ -15,7 +15,7 @@
     </h3>
     <% if @event.cover_poster.url.match(/missing.png$/).nil? %>
     <div>
-      <img src="<%= @event.cover_poster.url(:medium) %>" width="600" />
+      <A href="<%= @event.cover_poster.url %>" target="_blank" title="Click to view higher resolution picture"><img src="<%= @event.cover_poster.url(:medium) %>" width="600" /></A>
     </div>
     <% end %>
     <div> 
