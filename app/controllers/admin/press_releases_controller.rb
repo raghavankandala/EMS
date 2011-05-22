@@ -13,7 +13,7 @@ class Admin::PressReleasesController < ApplicationController
   def create
     @press_release = PressRelease.new(params[:press_release])
     if @press_release.save
-      redirect_to '/press_releases', :notice => "Successfully created press release."
+      redirect_to '/press', :notice => "Successfully created press release."
     else
       render :action => 'new'
     end

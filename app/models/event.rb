@@ -5,7 +5,7 @@ class Event < ActiveRecord::Base
 
   has_attached_file :venue, :styles => { :thumb => "100x100#", :small => "278x205>" }
   has_attached_file :rallyroute, :styles => { :thumb => "100x100#", :small => "278x205>" }
-  has_attached_file :cover_poster, :styles => { :thumb => "100x100#", :small => "278x205>", :medium => "630x309>", :large => "900x338>" }
+  has_attached_file :cover_poster, :styles => { :thumb => "100x100#", :small => "278x205>", :medium => "630x309>", :large => "900x>" }
 
   validates_attachment_size :venue, :less_than => 1.megabytes  
   validates_attachment_content_type :venue, :content_type => ['image/jpeg', 'image/png']  

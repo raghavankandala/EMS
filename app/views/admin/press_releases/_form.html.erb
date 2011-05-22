@@ -1,5 +1,5 @@
 <div style="width:850px;margin:auto;">
-<%= form_for @press_release do |f| %>
+<%= form_for [:admin, @press_release] do |f| %>
   <%= render 'layouts/form_error', :target => @press_release %>
   <p>
     <label> Title </label>
