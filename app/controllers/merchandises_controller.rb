@@ -14,4 +14,23 @@ class MerchandisesController < ApplicationController
     @merchandise = Merchandise.find(params[:id])
   end
 
+  def new
+    @merchandise = Merchandise.new
+    @merchandise.event =  Event.find(params[:event_id]) unless params[:event_id].nil?
+  end
+
+  def create
+    @merchandise = Merchandise.new(params[:merchandise])
+    if @merchandise.save
+      if @merchandise.event.nil?
+        redirect_to '/artwork', :notice => "Successfully created merchandise."
+      else
+        redirect_to event_merchandises_path(@merchandise.event), :notice => "Successfully created merchandise."
+      end
+    else
+      render :action => 'new'
+    end
+  end
+
+
 end

@@ -26,7 +26,7 @@ class Admin::PressReleasesController < ApplicationController
   def update
     @press_release = PressRelease.find(params[:id])
     if @press_release.update_attributes(params[:press_release])
-      redirect_to '/press_releases', :notice  => "Successfully updated press release."
+      redirect_to '/press', :notice  => "Successfully updated press release."
     else
       render :action => 'edit'
     end
@@ -35,7 +35,7 @@ class Admin::PressReleasesController < ApplicationController
   def destroy
     @press_release = PressRelease.find(params[:id])
     @press_release.destroy
-    redirect_to press_releases_url, :notice => "Successfully destroyed press release."
+    redirect_to '/press', :notice => "Successfully destroyed press release."
   end
   
 end
