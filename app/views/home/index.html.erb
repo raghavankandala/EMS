@@ -45,15 +45,11 @@
   <div class="span-5 last">
     <%= render 'social_connect' %>
   </div>
+  <%= render 'quick_links/recent' %>
 </div>
 <div class="span-8 last">
   <div style="border-left:1px dotted #000;margin-bottom:5px;margin-right:10px;">
-    <%= render 'quick_links/recent' %>
-    <!--TABLE border=1 class="colorful">
-      <TR><TD><div><A href="#">Coordinators</A></div></TD> <TD><div><A href="#">Contribute</A></div></TD></TR>
-      <TR><TD><div><A href="#">Complaints</A></div></TD> <TD><div><A target="_blank" href="https://www.facebook.com/pages/Saaku/218303511518787">Facebook</A></div></TD>
-      </TR>
-    </TABLE-->
+    <div style="width:285px;margin:5px;padding-bottom:10px;border-bottom:1px dotted #000;"> <%= render 'home/donate' %> </div>
     <iframe src="http://is.gd/b8039b" width="285" height="300" style="margin-left:5px;margin-top:2px;"></iframe>
   </div>
 </div>

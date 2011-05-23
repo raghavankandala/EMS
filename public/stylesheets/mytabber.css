@@ -1,0 +1,49 @@
+.tabberlive {
+  margin-top:10px;
+}
+
+ul.tabbernav { 
+  border-bottom: 1px solid #000;
+}
+
+ul.tabbernav li a {
+  background: #FFFFD9;
+  color: #000;
+  border:1px solid #000;
+  margin-right: 4px;
+  margin-left: 0;
+}
+
+ul.tabbernav li a:link {
+  color: #000;
+}
+
+ul.tabbernav li a:hover {
+  background-color: #FFFFD9;
+}
+
+ul.tabbernav li.tabberactive a, ul.tabbernav li.tabberactive a:hover {
+  background: #F5F5F5;
+  border-bottom: 1px solid #F5F5F5;
+}
+
+div.tabbertab div {
+  background: #F5F5F5;
+  border:1px solid #000;
+  border-top:none;
+  padding:6px;
+}
+
+.tabberlive .tabbertab {
+  padding:0;
+}
+
+ul.tabbernav li.tabberactive a {
+  background-color: #F5F5F5;
+  color: #000;
+  border-bottom:1px solid #F5F5F5;
+}
+
+ul.tabbernav li.tabberactive a:link {
+  color: #000;
+}

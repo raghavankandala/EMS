@@ -1,8 +1,8 @@
 <div style="border-bottom:1px dotted #000;margin-right:15px;">
 <ul class="pretty-listing">
   <% @upcoming_events.each do |event| %>
-  <li>
-    <span style="font-size: 14px; font-weight: bold; font-family: Verdana;">
+  <li style="border-bottom:1px solid #000;">
+    <span style="margin-left:5px;font-size: 14px; font-weight: bold; font-family: Verdana;">
       <%= event.title %> <%= event_time(event) %>
     </span> -
     <A href="/events/<%= event.cached_slug %>" style="font-size:12px;">Read More
@@ -10,6 +10,13 @@
       <img src="<%= event.cover_poster.url(:large) %>" />
       <% end %>
     </A>
+     <div style="padding-left:5px;padding-right:5px;font-size:12px;">
+      <A style="font-size:12px;" href="/events/<%= event.cached_slug %>/attend">I want to attend</A>&nbsp; | &nbsp; 
+      <A style="font-size:12px;" href="/events/<%= event.cached_slug %>/invite">I want to invite others </A> &nbsp; | &nbsp;
+      <A style="font-size:12px;" href="/events/<%= event.cached_slug %>/volunteer">I want to Volunteer </A>&nbsp; | &nbsp;
+      <A style="font-size:12px;" href="/events/<%= event.cached_slug %>/attendees">See who is coming </A>&nbsp; | &nbsp;
+      <A style="font-size:12px;" href="/events/<%= event.cached_slug %>#donate">Donate</A>
+     </div>
   </li>
   <% end %>
 </ul>
