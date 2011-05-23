@@ -1,8 +1,9 @@
 <style>
    table tr td { padding:20px; }
-   table tr td div { padding-bottom:10px; border-bottom:1px dotted #EC1F26; }
+   table tr td div { padding-bottom:10px; border-bottom:0px dotted #EC1F26; }
+   table tr td { border-bottom:1px dotted #EC1F26; }
    table tr td.middle { border-left : 1px dotted #EC1F26; border-right: 1px dotted #EC1F26; }
-   table tr.last td div { border-bottom:none; }
+   table tr.last td { border-bottom:none; }
 </style>
 <div class="span-17">&nbsp;<%= will_paginate(@merchandises) %>&nbsp;</div>
 <div class="span-7 last">
@@ -36,7 +37,7 @@
       <% _row_open = true %>
     <% end %>
       <TD <%= "class='middle'" if ((_col_index-1)%_per_row == 0) %> >
-         <A href="<%= merchandise.material_link %>" target="_blank"><%= image_tag(merchandise.cover_image.url(:small), :size => '250x180')%></A><br/>
+         <A href="<%= merchandise.material_link %>" target="_blank"><%= image_tag(merchandise.cover_image.url(:small))%></A><br/>
          <div style="text-align:center;width:250px;">
             <span class="highlighted-text"><%= merchandise.title %></span> <br/>
             <% if merchandise.material_uploaded? %>
