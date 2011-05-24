@@ -7,7 +7,7 @@
     </span> -
     <A href="/events/<%= event.cached_slug %>" style="font-size:12px;">Read More
       <% if event.cover_poster.url.match(/missing.png$/).nil? %>
-      <img src="<%= event.cover_poster.url(:large) %>" />
+      <img src="<%= event.cover_poster.url.match(/gif$/).nil? ? event.cover_poster.url(:large) : event.cover_poster.url %>" />
       <% end %>
     </A>
      <div style="padding-left:5px;padding-right:5px;font-size:12px;">
