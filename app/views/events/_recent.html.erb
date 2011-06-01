@@ -1,0 +1,11 @@
+<div style="padding:5px;border-bottom:0px dotted #CCC;height:auto;border-left:1px dotted #CCC;" class="quick-links">
+   <p style="padding-left:10px;border-bottom:1px dotted #cCC;"> <span class="highlighted-text">Recent Events</span></p>
+      <ul class="pretty-listing" style="border-bottom:0px dotted #CCC;margin:0;">
+          <% @recent_events.each do |event| %>
+          <li style="font-size:13px;">
+            <%= event.title %> <%= event_time(event) %> <%= link_to "Read More", event, {'style' => 'font-size:12px;'} %>
+          </li>
+          <% end %>
+      </ul>
+</div>
+
