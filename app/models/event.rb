@@ -22,6 +22,10 @@ class Event < ActiveRecord::Base
     Event.where("end_date >= ?", Time.now())
   end
 
+  def self.recent
+    Event.where("end_date <= ?", Time.now()).limit(5).order("start_date DESC")
+  end
+
   def social_network?
     (!self.facebook_url.blank? || !self.twitter_url.blank? || !self.orkut_url.blank?)
   end

@@ -1,6 +1,6 @@
 <div style="padding:5px;border-bottom:0px dotted #CCC;height:auto;" class="quick-links">
    <p style="padding-left:10px;border-bottom:1px dotted #cCC;"> <span class="highlighted-text">Quick Links</span></p>
-      <ul class="pretty-listing" style="border-bottom:1px dotted #CCC;margin:0;">
+      <ul class="pretty-listing" style="border-bottom:0px dotted #CCC;margin:0;">
           <% QuickLink.order('updated_at DESC').limit(5).each do |ql| %>
           <li style="font-size:13px;"><%= ql.title %>
             <% if ql.external? %>
