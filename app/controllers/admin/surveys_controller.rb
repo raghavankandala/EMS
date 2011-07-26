@@ -36,7 +36,7 @@ class Admin::SurveysController < ApplicationController
     @survey = Survey.find(params[:id])
     if @survey.update_attributes(params[:survey])
       flash[:notice] = "Successfully updated survey."
-      redirect_to @survey
+      redirect_to [:admin, @survey]
     else
       render :action => 'edit'
     end
