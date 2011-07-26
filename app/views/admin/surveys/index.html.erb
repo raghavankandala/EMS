@@ -1,0 +1,16 @@
+
+<table>
+  <tr>
+    <th>Name</th>
+  </tr>
+  <% for survey in @surveys %>
+    <tr>
+      <td><%=h survey.title%></td>
+      <td><%= link_to "Show", [:admin,survey] %></td>
+      <td><%= link_to "Edit", edit_admin_survey_path(survey) %></td>
+      <td><%= link_to "Destroy", [:admin, survey], :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Survey", new_admin_survey_path %></p>

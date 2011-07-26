@@ -1,0 +1,34 @@
+<div style="width:600px;margin:5px auto;background-color:#F0EBE2;padding-top:5px;padding-bottom:5px;border:2px solid #000;">
+<%= render 'layouts/form_error', :target => @surveyor %>
+<p>
+  <h2 style="text-align:center;"><%=h @survey.title %></h2>
+</p>
+<%= form_for @surveyor, :url => "/surveyors" do |f| %>
+<%= f.hidden_field :survey_id %>
+<p style="margin-left:20px;">
+  <%= f.label :name %>&nbsp;&nbsp;
+  <%= f.text_field :name %>
+</p>
+<p style="margin-left:20px;">
+  <%= f.label :email, "Email " %>&nbsp;&nbsp;
+  <%= f.text_field :email %>
+</p>
+<br/>
+<ol>
+<% for question in @survey.questions %>
+  <li style="margin-top:10px;border-bottom:2px solid #FFF;padding-bottom:10px;">
+    <strong><%=h question.title %></strong>
+      <ul style="padding-left:0px;margin-top:5px;">
+        <% question.answers.each do |answer| %>
+          <li style="list-style-type:none;"><%= radio_button_tag "answer[#{question.id}]", answer.id %><%= answer.title %></li>
+        <% end %>
+      </ul>
+  </li>
+<% end %>
+</ol>
+<p style="text-align:right;padding-right:20px;">
+<%= submit_tag "Submit" %> <input type="button" value="Cancel" onClick="window.location.href='/';" >
+</p>
+<% end %>
+</div>
+<br/>

@@ -31,7 +31,9 @@
       SPREAD THE MESSAGE!!! - INDIA AGAINST CORRUPTION - BENGALURU
     </p>
     <hr/>
-    <%= render 'attend' %>
+    <% unless Time.now() > @event.end_date %>
+      <%= render 'attend' %>
+    <% end %>
   </div>
 </div>
 <!-- Right hand side content -->

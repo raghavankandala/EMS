@@ -1,0 +1,12 @@
+<% form_for [:admin, @survey] do |f| %>
+  <p>
+    <%= f.label :title, "Survey Title" %> <br />
+    <%= f.text_field :title, :size => 75 %>
+  </p>
+  <%= f.fields_for :questions do |builder| %>
+    <%= render "question_fields", :f => builder %>
+  <% end %>
+  <p style="text-align:right;width:630px;"><br/><%= link_to_add_fields "Add Question", f, :questions %></p>
+  <br/>
+  <p><%= f.submit "Submit" %> Or <%= link_to "Cancel", admin_surveys_path %></p>
+<% end %>

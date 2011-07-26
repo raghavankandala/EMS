@@ -1,0 +1,13 @@
+<div class="fields question">
+  <p>
+    <%= f.label :title, "Question" %>
+    <%= f.text_field :title, :size => 60 %>
+    <%= link_to_remove_fields "(remove)", f %><br />
+  </p>
+  <div class="answers">
+  <%= f.fields_for :answers do |builder| %>
+    <%= render 'answer_fields', :f => builder %>
+  <% end %>
+  <p style="width:560px;text-align:right;"><br/><%= link_to_add_fields "Add Answer", f, :answers%></p>
+  </div>
+</div>

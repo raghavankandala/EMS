@@ -162,7 +162,7 @@ div.form {
 
 div.form p { margin: 5px 0 5px 0 }
 
-form p label { display: block; }
+form p label { display: inline; }
 
 form p { margin: 0; }
 
@@ -314,3 +314,6 @@ div#flash_recaptcha_error { display:none; }
 div.pagination { text-align: right;margin-right:20px;}
 
 div.links A { color: blue; font-size:12px;}
+
+div.answers { margin-left:55px; }
+div.question { padding: 5px; background-color: #F0EBE2; width:620px; margin-bottom:3px;}

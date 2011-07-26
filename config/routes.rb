@@ -7,7 +7,7 @@ Saaku20::Application.routes.draw do
   end
 
   namespace "admin" do
-    resources :events, :users, :registrations, :broadcast_messages, :press_releases, :quick_links, :merchandises
+    resources :events, :users, :registrations, :broadcast_messages, :press_releases, :quick_links, :merchandises, :surveys
   end
   
   #  resources :users do 
@@ -36,8 +36,9 @@ Saaku20::Application.routes.draw do
       post 'send_invite'
     end
   end
-
-
+  resources :surveys 
+  resources :surveyors 
+  
   get "logout" => "sessions#destroy", :as => "logout"
   get "login" => "sessions#new", :as => "login"
   get "sign_up" => "users#new", :as => "sign_up"
@@ -48,6 +49,7 @@ Saaku20::Application.routes.draw do
   match "/press" => "press_releases#recent"
   match "/change_password" => "users#change_password"
   match "/set_password" => "users#set_password"
+  match "/surveys/:survey_id/participate" => "surveyors#new"
   get "users/destroy"
   resources :users
   resources :sessions

@@ -1,0 +1,27 @@
+<p>
+  <h3><%=h @survey.title %></h3>
+</p>
+<%= form_for @surveyor, :url => "/surveyors" do |f| %>
+<%= f.hidden_field :survey_id %>
+<p style="margin-left:20px;">
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+</p>
+<p style="margin-left:20px;">
+  <%= f.label :email %>
+  <%= f.text_field :email %>
+</p>
+<ol>
+<% for question in @survey.questions %>
+  <li>
+    <%=h question.title %>
+      <ul>
+        <% question.answers.each do |answer| %>
+          <li><%= radio_button_tag "answer[#{question.id}]", answer.id %><%= answer.title %></li>
+        <% end %>
+      </ul>
+  </li>
+<% end %>
+</ol>
+<%= submit_tag "Submit" %>
+<% end %>
