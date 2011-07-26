@@ -49,6 +49,8 @@ Saaku20::Application.routes.draw do
   match "/press" => "press_releases#recent"
   match "/change_password" => "users#change_password"
   match "/set_password" => "users#set_password"
+  match "/fight" => "home#fight"
+  match "/voteright" => "home#voteright"
   match "/surveys/:survey_id/participate" => "surveyors#new"
   get "users/destroy"
   resources :users
