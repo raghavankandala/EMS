@@ -3,6 +3,10 @@
     <%= f.label :title, "Survey Title" %> <br />
     <%= f.text_field :title, :size => 75 %>
   </p>
+  <p>
+    <%= f.label :summary, "Summary" %> <br />
+    <%= f.cktext_area :summary, :rows => 10, :cols => 45 %>
+  </p>
   <%= f.fields_for :questions do |builder| %>
     <%= render "question_fields", :f => builder %>
   <% end %>

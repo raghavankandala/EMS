@@ -2,6 +2,9 @@
   <strong>Name:</strong>
   <%=h @survey.title %>
 </p>
+<p>
+  <%=raw @survey.summary %>
+</p>
 
 <ol>
 <% for question in @survey.questions %>
