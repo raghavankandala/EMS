@@ -16,6 +16,7 @@ class SurveyorsController < ApplicationController
     @surveyor = Surveyor.where("email = ? AND survey_id = ?", params[:surveyor][:email], params[:surveyor][:survey_id]).first
     @surveyor = Surveyor.new(params[:surveyor]) if @surveyor.nil?
     if @surveyor.valid? && @surveyor.answered_all?(params[:answer])
+      @surveyor.ip_address = request.remote_ip()
       @surveyor.save
       SurveyAnswer.destroy_all("surveyor_id = '#{@surveyor.id}' AND question_id in (#{@surveyor.survey.question_ids.join(',')})")
       params[:answer].each do |question, answer|

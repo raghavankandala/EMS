@@ -9,13 +9,14 @@
 <div style="width:430px;margin:5px auto;"><%= render 'layouts/form_error', :target => @surveyor %></div>
 <%= form_for @surveyor, :url => "/surveyors" do |f| %>
 <%= f.hidden_field :survey_id %>
+<input type="hidden" name="_method" value="POST" />
 <p style="margin-left:20px;">
   <%= f.label :name %>&nbsp;&nbsp;
-  <%= f.text_field :name %>
+  <%= f.text_field :name %> <span style="color:#EC1F26;">(required)</span>
 </p>
 <p style="margin-left:20px;">
   <%= f.label :email, "Email " %>&nbsp;&nbsp;
-  <%= f.text_field :email %>
+  <%= f.text_field :email %> <span style="color:#EC1F26;">(required)</span>
 </p>
 <br/>
 <ol>
