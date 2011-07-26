@@ -23,7 +23,7 @@ class Event < ActiveRecord::Base
   end
 
   def self.recent
-    Event.where("end_date <= ?", Time.now()).limit(5).order("start_date DESC")
+    Event.where("end_date <= ?", Time.now()).limit(3).order("start_date DESC")
   end
 
   def social_network?
