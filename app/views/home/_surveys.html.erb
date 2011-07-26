@@ -1,0 +1,11 @@
+<div style="padding:5px;background-color:#F0EBE2;height:auto;border:1px solid #000;margin-bottom:5px;">
+   <p style="padding-left:10px;border-bottom:1px dotted #cCC;"> <span class="highlighted-text">Surveys</span></p>
+      <ul class="pretty-listing" style="border-bottom:0px dotted #CCC;margin:0;">
+          <% @recent_surveys.each do |survey| %>
+          <li style="font-size:16px;">
+            <%= survey.title %> <%= link_to "Participate", "/surveys/#{survey.slug.name}/participate", {'style' => 'font-size:12px;'} %>
+          </li>
+          <% end %>
+      </ul>
+</div>
+
