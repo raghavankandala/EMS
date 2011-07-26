@@ -1,8 +1,12 @@
+<style>
+  div.field_with_errors { display: inline; margin-left:20px;}
+  div.errorExplanation { padding: 10px; background-color: #FFF; }
+</style>
 <div style="width:600px;margin:5px auto;background-color:#F0EBE2;padding-top:5px;padding-bottom:5px;border:2px solid #000;">
-<%= render 'layouts/form_error', :target => @surveyor %>
 <p>
   <h2 style="text-align:center;"><%=h @survey.title %></h2>
 </p>
+<div style="width:430px;margin:5px auto;"><%= render 'layouts/form_error', :target => @surveyor %></div>
 <%= form_for @surveyor, :url => "/surveyors" do |f| %>
 <%= f.hidden_field :survey_id %>
 <p style="margin-left:20px;">
