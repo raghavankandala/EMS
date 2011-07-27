@@ -3,6 +3,7 @@
 var an_page = 2;
 var new_quote = null;
 var rotate_quote = true;
+var alert_page = 1;
 
 function hideFlashMessage() {
    if($("flash_notice")) {
@@ -70,6 +71,10 @@ function flash_text() {
 	if($("flash_text")) {
 		new Effect.Pulsate("flash_text", {pulses:3, duration: 2});
 	}
+}
+
+function alerts() {
+   new Ajax.Request('/disp_alerts?page='+alert_page, {method: 'get', asynchronous:true, evalScripts:true});
 }
 
 function externalPr(checkbox_obj) {

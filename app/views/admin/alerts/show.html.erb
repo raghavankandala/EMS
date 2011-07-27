@@ -1,0 +1,14 @@
+<p>
+  <strong>Alert Content:</strong>
+  <%= raw @alert.content %>
+</p>
+<p>
+  <strong>Validity:</strong>
+  <%= @alert.validity.strftime("%d %m %Y %H:%M %P")%>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_admin_alert_path(@alert) %> |
+  <%= link_to "Destroy", [:admin, @alert], :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", admin_alerts_path %>
+</p>

@@ -45,6 +45,8 @@
 
 <script type="text/javascript">
 	flash_text();
+   alerts();
+	new PeriodicalExecuter(alerts, 20);
 	new PeriodicalExecuter(flash_text, 20);
 	new PeriodicalExecuter(announcement, 30);
 </script>

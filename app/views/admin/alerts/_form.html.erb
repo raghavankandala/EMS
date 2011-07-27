@@ -1,0 +1,15 @@
+<div class='form'>
+<%= render 'layouts/form_error', :target => @alert %>
+<%= form_for [:admin, @alert] do |f| %>
+  <p>
+    <%= f.label "Content" %> <br/>
+    <%= f.text_area :content%> 
+  </p>
+  <p>
+    <%= f.label "Validity" %>
+    <%= f.date_select :validity %> 
+  </p>
+  <br/>
+  <p><%= f.submit %> Or <%= link_to "Cancel", "/admin/alerts" %></p>
+<% end %>
+</div>

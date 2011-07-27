@@ -7,7 +7,7 @@ Saaku20::Application.routes.draw do
   end
 
   namespace "admin" do
-    resources :events, :users, :registrations, :broadcast_messages, :press_releases, :quick_links, :merchandises, :surveys
+    resources :events, :users, :registrations, :broadcast_messages, :press_releases, :quick_links, :merchandises, :surveys, :alerts
   end
   
   #  resources :users do 
@@ -52,6 +52,7 @@ Saaku20::Application.routes.draw do
   match "/fight" => "home#fight"
   match "/voteright" => "home#voteright"
   match "/surveys/:survey_id/participate" => "surveyors#new"
+  match "/disp_alerts" => "home#alerts"
   get "users/destroy"
   resources :users
   resources :sessions

@@ -1,5 +1,5 @@
 class Invite < ActiveRecord::Base
-  attr_accessible :inviter_name, :inviter_email, :invitees
+   attr_accessible :inviter_name, :inviter_email, :invitees
    validates_presence_of :inviter_name, :message => "Please enter your name"
    validates_presence_of :inviter_email, :message => "Please enter your email"
    validates_presence_of :invitees, :message => "Please enter atleast one email address to send the invitation."

@@ -1,0 +1,16 @@
+<table>
+  <tr>
+    <th>Content</th>
+    <th>Validity</th>
+  </tr>
+  <% for alert in @alerts %>
+    <tr>
+      <td><%= raw(alert.content) %></td>
+      <td><%= alert.validity.strftime("%d-%m-%Y  %H:%M %P")%></td>
+      <td><%= link_to "Edit", edit_admin_alert_path(alert) %></td>
+      <td><%= link_to "Destroy", [:admin, alert], :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Alert", new_admin_alert_path %></p>

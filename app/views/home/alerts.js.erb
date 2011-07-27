@@ -1,0 +1,9 @@
+<% if @alerts.total_entries > 0 %>
+  $("alert").update("<%= escape_javascript(render(:partial => 'alert')) %>");
+  $("alert").show();
+  Effect.Grow("flash_text", {direction: 'bottom-right', duration: 2})
+  alert_page = (alert_page >= <%= @alerts.total_entries %>) ? 1 : (alert_page + 1)
+<% else %>
+  $("alert").update("");
+  $("alert").hide();
+<% end %>
