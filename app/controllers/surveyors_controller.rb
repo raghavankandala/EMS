@@ -22,7 +22,6 @@ class SurveyorsController < ApplicationController
       params[:answer].each do |question, answer|
         SurveyAnswer.create!({:answer_id => answer, :question_id => question, :surveyor_id => @surveyor.id})
       end
-      redirect_to "/surveys/#{@surveyor.survey.slug.name}/participate", :notice => "Thank you for participating in #{@surveyor.survey.title}"
     else
       @survey = @surveyor.survey
       render :action => 'new'
