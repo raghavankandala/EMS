@@ -25,7 +25,7 @@
     <strong><%=h question.title %></strong>
       <ul style="padding-left:0px;margin-top:5px;">
         <% question.answers.each do |answer| %>
-          <li style="list-style-type:none;"><%= radio_button_tag "answer[#{question.id}]", answer.id %><%= answer.title %></li>
+          <li style="list-style-type:none;"><%= radio_button_tag "answer[#{question.id}]", answer.id %><%= answer.title %> (<%= (answer.survey_answers.length.to_f / answer.question.survey_answers.length.to_f) %> % chose this answer) </li>
         <% end %>
       </ul>
   </li>
