@@ -51,6 +51,7 @@ Saaku20::Application.routes.draw do
   match "/set_password" => "users#set_password"
   match "/fight" => "home#fight"
   match "/voteright" => "home#voteright"
+  match "/about_us" => "home#about"
   match "/surveys/:survey_id/participate" => "surveyors#new"
   match "/disp_alerts" => "home#alerts"
   get "users/destroy"

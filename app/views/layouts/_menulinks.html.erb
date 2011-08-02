@@ -8,7 +8,7 @@
   <% end %>
 </div>
 
-<div style="margin-top:102px;"> 
+<div style="margin-top:120px;"> 
 	<ul class="horizontal_menu"> 
 		<li class="<%= 'highlight_menu' if !@highlighted_menu.nil? && @highlighted_menu.eql?('home') %>"><A href="/">Home</A></li>
 		<li class="<%= 'highlight_menu' if !@highlighted_menu.nil? && @highlighted_menu.eql?('fight') %>"><A href="/fight">Fight</A></li>
@@ -16,5 +16,6 @@
 		<!--li class="<%= 'highlight_menu' if !@highlighted_menu.nil? && @highlighted_menu.eql?('music')%>"><A href="/attend">Music</A></li-->
 		<li class="<%= 'highlight_menu' if !@highlighted_menu.nil? && @highlighted_menu.eql?('artwork')%>"><A href="/artwork">Artwork</A></li>
 		<li class="<%= 'highlight_menu' if !@highlighted_menu.nil? && @highlighted_menu.eql?('press') %>"><A href="/press">PRESS</A></li>
+		<li class="<%= 'highlight_menu' if !@highlighted_menu.nil? && @highlighted_menu.eql?('about') %>"><A href="/about_us">About Us</A></li>
 	</ul>
 </div>
