@@ -15,6 +15,7 @@ class SurveyorsController < ApplicationController
   def create  
     @surveyor = Surveyor.where("email = ? AND survey_id = ?", params[:surveyor][:email], params[:surveyor][:survey_id]).first
     @surveyor = Surveyor.new(params[:surveyor]) if @surveyor.nil?
+    @survey = @surveyor.survey
     if @surveyor.valid? && @surveyor.answered_all?(params[:answer])
       @surveyor.ip_address = request.remote_ip()
       @surveyor.save
@@ -23,7 +24,6 @@ class SurveyorsController < ApplicationController
         SurveyAnswer.create!({:answer_id => answer, :question_id => question, :surveyor_id => @surveyor.id})
       end
     else
-      @survey = @surveyor.survey
       render :action => 'new'
     end
   end

@@ -53,6 +53,7 @@ Saaku20::Application.routes.draw do
   match "/voteright" => "home#voteright"
   match "/about_us" => "home#about"
   match "/surveys/:survey_id/participate" => "surveyors#new"
+  match "/surveys/:id/results" => "surveys#results"
   match "/disp_alerts" => "home#alerts"
   get "users/destroy"
   resources :users

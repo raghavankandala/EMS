@@ -1,5 +1,7 @@
 <div style="padding:15px;background-color:#FFF;height:auto;border:2px solid #000;margin-bottom:5px;width:400px;margin:5px auto;">
-  <p>Thank you for participating in <strong><%= @surveyor.survey.title %> Survey. Here are the results so far.</strong></p>
+  <p>Results of <strong><%= @survey.title %> Survey</strong></p>
+
+<p><%= @survey.surveyors.count %> people participated in the online survey</p>
 
 <ol>
 <% for question in @survey.questions %>
@@ -13,10 +15,4 @@
   </li>
 <% end %>
 </ol>
-
-  <p>Please spread the message about the referendum by passing the <%= link_to "survey participation link", "/surveys/#{@surveyor.survey.slug.name}/participate" %> (<%= "http://#{request.host_with_port}/surveys/#{@surveyor.survey.slug.name}/participate" %>) to your friends and colleagues</p>
-  <p>Go back to <%= link_to "Home Page", "/" %> Or <%= link_to @surveyor.survey.title, "/surveys/#{@surveyor.survey.slug.name}/participate" %></p>
 </div>
-<script>
-  setTimeout("window.location.href='/';", 60000);
-</script>
