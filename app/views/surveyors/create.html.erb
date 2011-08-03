@@ -7,7 +7,7 @@
     <strong><%=h question.title %></strong>
       <ul style="padding-left:0px;margin-top:5px;">
         <% question.answers.each do |answer| %>
-          <li style="list-style-type:none;"><%= answer.title %> <span style="margin-left:10px;font-weight:bold;">(<%= ((answer.survey_answers.length.to_f / answer.question.survey_answers.length.to_f)*100).to_i %>% chose this answer) </span> </li>
+          <li style="list-style-type:none;"><%= answer.title %> <span style="margin-left:10px;font-weight:bold;">(<%= number_with_precision(((answer.survey_answers.length.to_f / answer.question.survey_answers.length.to_f)*100), :precision => 2) %>% chose this answer) </span> </li>
         <% end %>
       </ul>
   </li>

@@ -1,7 +1,7 @@
-<div style="padding:15px;background-color:#FFF;height:auto;border:2px solid #000;margin-bottom:5px;width:400px;margin:5px auto;">
-  <p>Results of <strong><%= @survey.title %> Survey</strong></p>
+<div style="padding:15px;background-color:#F0EBE2;height:auto;border:2px solid #000;margin-bottom:5px;width:650px;margin:5px auto;">
+  <p style="text-align:center;">Results of <strong><%= @survey.title %> Survey</strong></p>
 
-<p><%= @survey.surveyors.count %> people participated in the online survey</p>
+  <p style="text-align:center;"><%= @survey.surveyors.count %> people participated in the online survey</p>
 
 <ol>
 <% for question in @survey.questions %>
@@ -9,7 +9,9 @@
     <strong><%=h question.title %></strong>
       <ul style="padding-left:0px;margin-top:5px;">
         <% question.answers.each do |answer| %>
-          <li style="list-style-type:none;"><%= answer.title %> <span style="margin-left:10px;font-weight:bold;">(<%= ((answer.survey_answers.length.to_f / answer.question.survey_answers.length.to_f)*100).to_i %>% chose this answer) </span> </li>
+          <li style="list-style-type:none;">
+            <span style="margin-left:10px;font-weight:bold;"> <%= answer.survey_answers.count %> / <%= answer.question.survey_answers.count %> ( <%= number_with_precision(((answer.survey_answers.count.to_f/answer.question.survey_answers.count.to_f)*100), :precision => 2) %>%) </span> said <span style="font-weight:bold;"><%= answer.title %> </span>
+          </li>
         <% end %>
       </ul>
   </li>
