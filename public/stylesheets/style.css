@@ -318,3 +318,5 @@ div.links A { color: blue; font-size:12px;}
 
 div.answers { margin-left:55px; }
 div.question { padding: 5px; background-color: #F0EBE2; width:620px; margin-bottom:3px;}
+
+table.bordered tr td { border: 1px solid #000; }
