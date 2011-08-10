@@ -1,9 +1,10 @@
-<div style="border-bottom:1px dotted #000;margin-right:15px;">
+<div style="border:1px solid #000;margin-right:18px;background-color:#F0EBE2;">
+<p style="padding-left:10px;border-bottom:1px dotted #cCC;"> <span class="highlighted-text">Upcoming Events</span></p>
 <ul class="pretty-listing">
   <% @upcoming_events.each do |event| %>
   <li style="border-bottom:1px solid #000;">
     <span style="margin-left:5px;font-size: 14px; font-weight: bold; font-family: Verdana;">
-      <%= event.title %> <%= event_time(event) %>
+      <%= event.title %> (<%= event_time(event) %>)
     </span> -
     <A href="/events/<%= event.cached_slug %>" style="font-size:12px;">Read More
       <% if event.cover_poster.url.match(/missing.png$/).nil? %>

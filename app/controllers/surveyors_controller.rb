@@ -7,6 +7,10 @@ class SurveyorsController < ApplicationController
 
   def new
     @survey = Survey.find(params[:survey_id])
+    if @survey.ends_on < Date.today()
+      redirect_to "/surveys/#{@survey.slug.name}/results", :notice => "This survey is closed for voting"
+      return;
+    end
     @surveyor = Surveyor.new
     @surveyor.survey = @survey
   end

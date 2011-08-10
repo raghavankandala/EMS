@@ -3,10 +3,13 @@
       <ul class="pretty-listing" style="border-bottom:0px dotted #CCC;margin:0;">
           <% @recent_surveys.each do |survey| %>
           <li style="font-size:16px;">
-            <h3><%= survey.title %> </h3>
-            <div> <%= raw survey.summary %></div>
+            <% if survey.ends_on < Date.today() %>
+              <h4><%= survey.title %> - <span style="font-size:12px;"><%= link_to 'Results', "/surveys/#{survey.slug.name}/results" %></span></h4>
+            <% else %>
+              <h4><%= survey.title %> </h4>
+              <div> <%= raw survey.summary %></div>
+            <% end %>
           </li>
           <% end %>
       </ul>
 </div>
-

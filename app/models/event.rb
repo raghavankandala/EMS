@@ -1,7 +1,7 @@
 class Event < ActiveRecord::Base
   has_friendly_id :title, :use_slug => true
 
-  attr_accessible :title, :description, :start_date, :end_date, :venue_location, :schedule, :contact, :city, :etype, :venue_directions_url, :venue, :rallyroute, :facebook_url, :twitter_url, :orkut_url, :cover_poster
+  attr_accessible :title, :description, :start_date, :end_date, :venue_location, :schedule, :contact, :city, :etype, :venue_directions_url, :venue, :rallyroute, :facebook_url, :twitter_url, :orkut_url, :cover_poster, :donate_box
 
   has_attached_file :venue, :styles => { :thumb => "100x100#", :small => "278x205>" }
   has_attached_file :rallyroute, :styles => { :thumb => "100x100#", :small => "278x205>" }

@@ -22,9 +22,11 @@
     </p>
     <% end %>
 
+    <% if @event.donate_box? %>
     <p>
       <%= render 'donate' %>
     </p>
+    <% end %>
 
     <% unless @event.venue_directions_url.blank? %>
     <p>

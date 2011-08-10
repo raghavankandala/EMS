@@ -7,6 +7,14 @@
     <%= f.label :summary, "Summary" %> <br />
     <%= f.cktext_area :summary, :rows => 10, :cols => 45 %>
   </p>
+  <p>
+    <%= f.label :starts_on %> <br />
+    <%= f.date_select :starts_on %>
+  </p>
+  <p>
+    <%= f.label :ends_on %> <br />
+    <%= f.date_select :ends_on %>
+  </p>
   <%= f.fields_for :questions do |builder| %>
     <%= render "question_fields", :f => builder %>
   <% end %>

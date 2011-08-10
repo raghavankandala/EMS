@@ -65,5 +65,9 @@
     <%= f.label :rallyroute %>
     <%= f.file_field :rallyroute %>
   </p>
+  <p>
+    <%= f.check_box :donate_box %>
+    <%= f.label :donate_box, "Show Donation information in Event details page" %>
+  </p>
   <p><%= f.submit %></p>
 <% end %>
